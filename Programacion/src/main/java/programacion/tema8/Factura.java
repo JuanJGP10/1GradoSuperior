@@ -37,7 +37,7 @@ public class Factura {
     }
 
     public void eliminarLinea(int numeroLinea) {
-        if (numeroLinea > 0 && numeroLinea < lineas.size()) {
+        if (numeroLinea > 0 && numeroLinea <= lineas.size()) {
             importeTotal -= lineas.get(numeroLinea - 1).getImporteTotalLinea();
             lineas.remove(numeroLinea - 1);
         }
