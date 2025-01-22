@@ -15,10 +15,14 @@ public class LineaFactura {
      * @param unidades
      * @param descuento
      */
-    public LineaFactura(String descripcion, double precioUnitario, int unidades, double descuento) {
+    public LineaFactura(String descripcion, double precioUnitario, int unidades) {
         this.descripcion = descripcion;
         this.precioUnitario = precioUnitario;
         this.unidades = unidades;
+        double descuento = 0;
+        if (unidades > 10) {
+            descuento = 0.05;
+        }
         this.descuento = descuento;
         this.importeTotalLinea = (unidades * precioUnitario) - ((unidades * precioUnitario) * descuento);
 
