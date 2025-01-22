@@ -1,0 +1,44 @@
+/* Fondo azul para enlaces con href que contiene "com" */
+a[href*="com"] {
+    background-color: blue;
+}
+
+/* Estilo para los grupos de párrafos del artículo de Kafka */
+.grupo-1 {
+    background-color: lightblue;
+}
+
+.grupo-2 {
+    background-color: lightgreen;
+}
+
+/* Últimas tres palabras con diferentes formatos de color */
+.grupo-1 span:nth-of-type(1) {
+    color: red;
+    /* Por nombre */
+}
+
+.grupo-1 span:nth-of-type(2) {
+    color: rgb(0, 128, 0);
+    /* RGB */
+}
+
+.grupo-1 span:nth-of-type(3) {
+    color: rgba(0, 0, 255, 0.5);
+    /* RGBA */
+}
+
+.grupo-2 span:nth-of-type(1) {
+    color: #FF5733;
+    /* Hexadecimal */
+}
+
+.grupo-2 span:nth-of-type(2) {
+    color: hsl(120, 100%, 50%);
+    /* HSL */
+}
+
+.grupo-2 span:nth-of-type(3) {
+    color: hsla(240, 100%, 50%, 0.7);
+    /* HSLA */
+}

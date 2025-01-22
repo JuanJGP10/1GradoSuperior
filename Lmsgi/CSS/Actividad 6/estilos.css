@@ -1,0 +1,48 @@
+a[href*="com"] {
+    background-color: blue;
+}
+
+.grupo1 {
+    text-align: justify;
+    line-height: 1.5;
+    text-indent: 30px;
+    font-family: 'Georgia', Times, serif;
+    background-color: lightblue;
+}
+
+.grupo2 {
+    text-align: center;
+    letter-spacing: 2px;
+    text-indent: 40px;
+    font-family: 'Comic Sans MS', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: lightyellow;
+}
+
+
+
+
+.p1 {
+    color: rgb(218, 113, 113);
+}
+
+.p2 {
+    color: rgb(8, 94, 8);
+}
+
+.p3 {
+    color: rgba(124, 124, 218, 0.5);
+}
+
+.p4 {
+    color: #d1ce1a;
+}
+
+.p5 {
+    color: hsl(120, 73%, 61%);
+}
+
+.p6 {
+    color: hsla(240, 100%, 50%, 0.7);
+}

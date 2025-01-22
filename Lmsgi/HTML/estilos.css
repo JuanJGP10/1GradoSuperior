@@ -1,0 +1,63 @@
+@charset "utf-8";
+/*Referencia de clase*/
+.btnav{
+    color:green;
+}
+/*Referencia de id*/
+#barra{
+    background-color: red;
+}
+
+#barra ul li:first-child{
+    background: #FFFFFF;
+}
+#barra ul li:nth-child(2){
+    background: #CCCCCC;
+}
+#barra ul li:last-child{
+    background: #999999;
+}
+/*Vínculos*/
+a:link{
+    color:green;
+}
+a:visited{
+    color:blue;
+}
+a:hover{
+    color:red;
+}
+a:focus{
+    color:blueviolet;
+}
+a:active{
+    color:yellow;
+}
+/*Pseudo-elementos*/
+p::first-letter{
+    color:red;
+    font-size:150%;
+}
+
+/*
+p::after { 
+    content: " - Escrito por Sergio Almagro.";
+  }
+*/    
+/*
+p::before { 
+    content: "Ojo a lo que te digo: ";
+  }
+*/
+/*
+p::first-line {
+    font-size: 20px;
+    text-decoration: underline; 
+    background-color: lightgreen;
+}
+*/
+
+::selection {
+    color: red;
+    background: yellow;
+}

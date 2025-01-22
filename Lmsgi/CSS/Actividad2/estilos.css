@@ -1,0 +1,13 @@
+/* Al ponerlo en la cabecera del documento index.html solo se aplica a ese fichero, al hacerlo en la hoja de estilos se aplica a todos*/
+header{
+    color: skyblue;
+}
+
+.secciones {
+    color: darkblue;
+}
+
+#titulo {
+    background-color: darkblue;
+    
+  }
