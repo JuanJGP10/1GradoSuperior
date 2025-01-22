@@ -46,19 +46,28 @@ public class Factura {
 
     public void imprimirFactura() {
         double importeTotalconIva = importeTotal * 1.21;
-        System.out.println("********************************");
-        System.out.println("            FACTURA             ");
-        System.out.println("********************************");
+        System.out.println(
+                "*********************************************************************************************");
+        System.out.println("                                        FACTURA             ");
+        System.out.println(
+                "*********************************************************************************************");
         System.out.println("Número de Factura: " + identificador);
         System.out.println("Fecha: " + fechaFactura);
         System.out.println("Cliente: " + numeroCliente);
-        System.out.println("--------------------------------");
+        System.out
+                .println(
+                        "-----------------------------------------------------------------------------------------------");
         System.out.println(lineas);
-        System.out.println("--------------------------------");
-        System.out.printf("IVA (21%%):                    %.2f\n", iva);
-        System.out.printf("TOTAL:                        %.2f\n", importeTotalconIva);
-        System.out.println("********************************");
-        System.out.println("       ¡Gracias por su compra! ");
+        System.out
+                .println(
+                        "-----------------------------------------------------------------------------------------------");
+        System.out.printf("IVA (21%%):                                                                  %.2f\n", iva);
+        System.out.printf("TOTAL:                                                                      %.2f\n",
+                importeTotalconIva);
+        System.out
+                .println(
+                        "***********************************************************************************************");
+        System.out.println("                                ¡Gracias por su compra! ");
     }
 
     @Override
