@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDate;
 
+/** */
 public class Factura {
-
-    private int identificador;
-    private LocalDate fechaFactura;
-    private int numeroCliente;
-    private static final double iva = 0.21;
+    /** */
+    private final int identificador;
+    private final LocalDate fechaFactura;
+    private final int numeroCliente;
+    public static final double IVA = 0.21;
     private double importeTotal = 0;
     private ArrayList<LineaFactura> lineas;
 
@@ -28,6 +29,17 @@ public class Factura {
         this.lineas = new ArrayList<LineaFactura>();
     }
 
+    // public void añadirLineaProfe(LineaFactura linea) {
+    // lineas.add(linea);
+    // importeTotal += linea.getImporteTotalLinea();
+    // }
+
+    /**
+     * 
+     * @param descripcion
+     * @param precioUnitario
+     * @param unidades
+     */
     public void añadirLinea(String descripcion, int precioUnitario, int unidades) {
 
         LineaFactura linea = new LineaFactura(descripcion, precioUnitario, unidades);
@@ -36,12 +48,29 @@ public class Factura {
 
     }
 
-    public void eliminarLinea(int numeroLinea) {
-        if (numeroLinea > 0 && numeroLinea <= lineas.size()) {
+    /**
+     * Metodo para borrar una linea de la factura
+     * 
+     * @param numeroLinea indice de la linea a borrar
+     * @return Linea Factura eliminada o null si no se borra
+     */
+    public LineaFactura eliminarLinea(int numeroLinea) {
+        if (!lineas.isEmpty() && numeroLinea > 0 && numeroLinea <= lineas.size()) {
             importeTotal -= lineas.get(numeroLinea - 1).getImporteTotalLinea();
-            lineas.remove(numeroLinea - 1);
+            return lineas.remove(numeroLinea - 1);
+        } else {
+            return null;
         }
 
+    }
+
+    /** */
+    public void imprimirFacturaProfe() {
+        System.out.printf("""
+                Identificacion factura: %d
+                Fecha: %s
+                Cliente: %d
+                """, identificador, fechaFactura, numeroCliente);
     }
 
     public void imprimirFactura() {
@@ -61,7 +90,7 @@ public class Factura {
         System.out
                 .println(
                         "-----------------------------------------------------------------------------------------------");
-        System.out.printf("IVA (21%%):                                                                  %.2f\n", iva);
+        System.out.printf("IVA (21%%):                                                                  %.2f\n", IVA);
         System.out.printf("TOTAL:                                                                      %.2f\n",
                 importeTotalconIva);
         System.out
@@ -76,6 +105,34 @@ public class Factura {
                 + numeroCliente + "\nimporteTotal=" + importeTotal + "$\nlineas=" + lineas;
     }
 
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    public LocalDate getFechaFactura() {
+        return fechaFactura;
+    }
+
+    public int getNumeroCliente() {
+        return numeroCliente;
+    }
+
+    public double getImporteTotal() {
+        return importeTotal;
+    }
+
+    public void setImporteTotal(double importeTotal) {
+        this.importeTotal = importeTotal;
+    }
+
+    public ArrayList<LineaFactura> getLineas() {
+        return lineas;
+    }
+
+    public void setLineas(ArrayList<LineaFactura> lineas) {
+        this.lineas = lineas;
+    }
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -83,11 +140,18 @@ public class Factura {
         Factura factura = new Factura(1000, 1000);
         boolean existeF = false;
         do {
-            System.out.println("1. Darse de alta");
-            System.out.println("2. Añadir lineas");
-            System.out.println("3. Eliminar lineas");
-            System.out.println("4. Imprimir factura");
-            System.out.println("5. Salir");
+            System.out.println("""
+                    1.Darse de alta
+                    2.Añadir linea
+                    3.Eliminar linea
+                    4.Imprimir factura
+                    5.Salir
+                    """);
+            // System.out.println("1. Darse de alta");
+            // System.out.println("2. Añadir lineas");
+            // System.out.println("3. Eliminar lineas");
+            // System.out.println("4. Imprimir factura");
+            // System.out.println("5. Salir");
             entrada = scanner.nextInt();
             scanner.nextLine();
 

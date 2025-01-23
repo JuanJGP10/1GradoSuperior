@@ -1,11 +1,11 @@
 package programacion.tema8;
 
 public class LineaFactura {
-    private String descripcion;
-    private double precioUnitario;
-    private int unidades;
-    private double descuento;
-    private double importeTotalLinea;
+    private final String descripcion;
+    private final double precioUnitario;
+    private final int unidades;
+    private final double descuento;
+    private final double importeTotalLinea;
 
     /**
      * Constructor LineaFactura
@@ -19,11 +19,7 @@ public class LineaFactura {
         this.descripcion = descripcion;
         this.precioUnitario = precioUnitario;
         this.unidades = unidades;
-        double descuento = 0;
-        if (unidades > 10) {
-            descuento = 0.05;
-        }
-        this.descuento = descuento;
+        this.descuento = (unidades > 10) ? 0.05 : 0;
         this.importeTotalLinea = (unidades * precioUnitario) - ((unidades * precioUnitario) * descuento);
 
     }
@@ -32,10 +28,18 @@ public class LineaFactura {
         return importeTotalLinea;
     }
 
+    // @Override
+    // public String toString() {
+    // return "[descripcion=" + descripcion + " precioUnitario=" + precioUnitario +
+    // " unidades="
+    // + unidades + " descuento=" + descuento + " importeTotalLinea=" +
+    // importeTotalLinea + "]\n";
+    // }
+
     @Override
     public String toString() {
-        return "[descripcion=" + descripcion + " precioUnitario=" + precioUnitario + " unidades="
-                + unidades + " descuento=" + descuento + " importeTotalLinea=" + importeTotalLinea + "]\n";
+        return String.format("%80s %6d %4d %2.2f %6.2f", descripcion, precioUnitario, unidades, descuento,
+                importeTotalLinea);
     }
 
 }
