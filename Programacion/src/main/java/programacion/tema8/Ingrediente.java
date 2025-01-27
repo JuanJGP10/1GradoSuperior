@@ -35,4 +35,9 @@ public class Ingrediente {
         this.unidad = unidad;
     }
 
+    @Override
+    public String toString() {
+        return "nombre:" + nombre + "| cantidad:" + cantidad + "| unidad:" + unidad + "\n";
+    }
+
 }

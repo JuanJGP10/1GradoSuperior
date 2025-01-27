@@ -45,7 +45,6 @@ public class Receta {
                 Elaboracion de la receta: %s
                 Duracion de la receta: %d
                 Ingredientes de la receta:
-
                 """, nombre, elaboracion, duracion);
         System.out.println(ingredientes);
     }
