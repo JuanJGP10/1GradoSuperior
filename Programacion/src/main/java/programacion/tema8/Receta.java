@@ -43,10 +43,19 @@ public class Receta {
         System.out.printf("""
                 Nombre de la receta: %s
                 Elaboracion de la receta: %s
-                Duracion de la receta: %d
+                Duracion de la receta: %d minutos
                 Ingredientes de la receta:
+
                 """, nombre, elaboracion, duracion);
-        System.out.println(ingredientes);
+        for (int i = 0; i < ingredientes.size(); i++) {
+            System.out.printf("""
+                    Ingrediente: %d | Nombre: %s | Cantidad: %d | Unidades: %s
+                    ____________________________________________________________________
+
+                    """, (i + 1), ingredientes.get(i).getNombre(), ingredientes.get(i).getCantidad(),
+                    ingredientes.get(i).getUnidad());
+        }
+
     }
 
 }
