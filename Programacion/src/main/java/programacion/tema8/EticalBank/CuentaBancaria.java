@@ -1,6 +1,8 @@
-package programacion.tema8;
+package programacion.tema8.EticalBank;
 
 import java.util.ArrayList;
+
+import programacion.tema8.Factura.Movimientos;
 
 public class CuentaBancaria {
 

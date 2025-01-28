@@ -1,4 +1,4 @@
-package programacion.tema8;
+package programacion.tema8.Factura;
 
 public class LineaFactura {
     private final String descripcion;

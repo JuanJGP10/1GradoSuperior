@@ -1,4 +1,4 @@
-package programacion.tema8;
+package programacion.tema8.EticalBank;
 
 import java.util.Scanner;
 
