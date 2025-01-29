@@ -19,6 +19,7 @@ public class Articulo {
      * @param stock        articulo
      */
     public Articulo(String nombre, double precioVenta, double precioCompra, int stock) {
+
         this.articuloIdentificador = contadorIdent;
         contadorIdent++;
 

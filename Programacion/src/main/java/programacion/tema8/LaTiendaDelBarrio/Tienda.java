@@ -1,10 +1,12 @@
 package programacion.tema8.LaTiendaDelBarrio;
 
 import java.util.ArrayList;
-
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Tienda {
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         String opcion;
         String opcionSub;
@@ -57,56 +59,60 @@ public class Tienda {
     }
 
     private static void eliminarArticulo(ArrayList<Articulo> articulos) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Que articulo deseas eliminar (numero de identificador)");
-        int ident = scanner.nextInt();
-        if (ident > 0 && ident < articulos.size()) {
-            articulos.remove(ident - 1);
-            Articulo.contadorIdent--;
-
+        int identificador = pediridentificador(articulos);
+        Iterator<Articulo> buscarPorIdentificador = articulos.iterator();
+        while (buscarPorIdentificador.hasNext()) {
+            if (buscarPorIdentificador.next().getArticuloIdentificador() == (identificador)) {
+                buscarPorIdentificador.remove();
+            }
         }
-
     }
 
     private static void editarArticulo(ArrayList<Articulo> articulos) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Que articulo deseas editar (numero de identificador)");
-        int ident = scanner.nextInt();
-        scanner.nextLine();
-        if (ident > 0 && ident <= articulos.size()) {
-            System.out.println("Dame el nombre del articulo:");
-            String nombre = scanner.nextLine();
-            System.out.println("Dame el precio de venta al publico:");
-            double precioV = scanner.nextDouble();
-            System.out.println("Dame el precio de compra al proovedor:");
-            double precioC = scanner.nextDouble();
-            System.out.println("Dame el stock actual del articulo:");
-            int stock = scanner.nextInt();
+        int identificador = pediridentificador(articulos);
 
-            Articulo.contadorIdent--;
-            Articulo articulo = new Articulo(nombre, precioV, precioC, stock);
-            articulos.set((ident - 1), articulo);
+        System.out.println("Dame el precio de venta al publico:");
+        double precioV = pedirPrecio();
+        System.out.println("Dame el precio de compra al proovedor:");
+        double precioC = pedirPrecio();
+        System.out.println("Dame el stock actual del articulo:");
+        int stock = pedirCantidad();
+        // Buscamos por identificador
+        Iterator<Articulo> buscarPorIdentificador = articulos.iterator();
+
+        while (buscarPorIdentificador.hasNext()) {
+            Articulo articuloTemp = buscarPorIdentificador.next();
+            if (articuloTemp.getArticuloIdentificador() == (identificador)) {
+                articuloTemp.setArticuloPrecioCompraProovedor(precioC);
+                articuloTemp.setArticuloPrecioVenta(precioV);
+                articuloTemp.setArticuloStock(stock);
+            }
         }
+
+        // Opcion no viable porque se crea un nuvo id y nombre y son final y para
+        // mantener los anteriores pues no se puede
+        // Articulo articulo = new Articulo(nombre, precioV, precioC, stock);
+        // articulos.set((identificador), articulo);
 
     }
 
     private static void añadirArticulo(ArrayList<Articulo> articulos) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Dame el nombre del articulo:");
         String nombre = scanner.nextLine();
         System.out.println("Dame el precio de venta al publico:");
-        double precioV = scanner.nextDouble();
+        double precioV = pedirPrecio();
         System.out.println("Dame el precio de compra al proovedor:");
-        double precioC = scanner.nextDouble();
+        double precioC = pedirPrecio();
         System.out.println("Dame el stock actual del articulo:");
-        int stock = scanner.nextInt();
+        int stock = pedirCantidad();
 
         Articulo articulo = new Articulo(nombre, precioV, precioC, stock);
         articulos.add(articulo);
     }
 
     private static String submenu() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("""
                 1.Añadir articulo
                 2.Editar articulo
@@ -118,12 +124,11 @@ public class Tienda {
     }
 
     private static void realizarCompra(ArrayList<Articulo> articulos) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Nombre del proveedor:");
         String nombreProveedor = scanner.nextLine();
         System.out.println("Cuantos articulos quieres comprar a " + nombreProveedor + " ?:");
-        int numeroArt = scanner.nextInt();
-        int ident = 0;
+        int numeroArt = pedirCantidad();
+        int identificador = 0;
         int cantidad = 0;
         double precioFinal = 0;
         ArrayList<Integer> identificadores = new ArrayList<>();
@@ -132,40 +137,48 @@ public class Tienda {
         for (int i = 1; i <= numeroArt; i++) {
 
             System.out.println("Articulo " + i);
-            System.out.println("Identificador:");
-            ident = scanner.nextInt();
+            System.out.println("identificador:");
+            identificador = pediridentificador(articulos);
             System.out.println("Cantidad:");
-            cantidad = scanner.nextInt();
-            scanner.nextLine();
+            cantidad = pedirCantidad();
 
-            if (ident > 0 && ident <= articulos.size()) {
+            Iterator<Articulo> buscarPorIdentificador = articulos.iterator();
 
-                identificadores.add(ident - 1);
-                cantidades.add(cantidad);
-                precioFinal += cantidad * articulos.get(ident - 1).getArticuloPrecioVenta();
-
-            } else {
-
-                System.out.println("El identificador no existe");
-                break;
-
+            while (buscarPorIdentificador.hasNext()) {
+                Articulo articuloTemp = buscarPorIdentificador.next();
+                if (articuloTemp.getArticuloIdentificador() == (identificador)) {
+                    precioFinal += cantidad * (articuloTemp.getArticuloPrecioCompraProovedor() * (Articulo.IVA + 1));
+                }
             }
+
+            identificadores.add(identificador);
+            cantidades.add(cantidad);
 
         }
 
         System.out.printf("""
                 El precio final sera: %.2f
                 Desea realizar esta compra?:
-                """, precioFinal + (precioFinal * Articulo.IVA));
+                """, precioFinal);
+
         String opcion = scanner.nextLine();
 
         if (opcion.equalsIgnoreCase("si")) {
 
             for (int i = 0; i < identificadores.size(); i++) {
 
-                int cantidadSumarStock = cantidades.get(i);
-                Articulo articulo = articulos.get(identificadores.get(i));
-                articulo.comprar(cantidadSumarStock);
+                Iterator<Articulo> buscarPorIdentificador = articulos.iterator();
+
+                while (buscarPorIdentificador.hasNext()) {
+                    Articulo articuloTemp = buscarPorIdentificador.next();
+                    if (articuloTemp.getArticuloIdentificador() == (identificadores.get(i))) {
+                        int cantidadSumarStock = cantidades.get(i);
+                        Articulo articulo = articuloTemp;
+                        articulo.comprar(cantidadSumarStock);
+
+                    }
+                }
+
             }
 
             System.out.println("Venta realizada con exito");
@@ -180,12 +193,11 @@ public class Tienda {
     // ------------------------------------------------------------------------//
     private static void realizarVenta(ArrayList<Articulo> articulos) {
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Nombre de cliente:");
+        System.out.println("Nombre del cliente:");
         String nombreCliente = scanner.nextLine();
-        System.out.println(nombreCliente + " cuantos articulos quieres comprar?:");
-        int numeroArt = scanner.nextInt();
-        int ident = 0;
+        System.out.println("Cuantos articulos quieres comprar " + nombreCliente + " ?:");
+        int numeroArt = pedirCantidad();
+        int identificador = 0;
         int cantidad = 0;
         double precioFinal = 0;
         ArrayList<Integer> identificadores = new ArrayList<>();
@@ -194,39 +206,48 @@ public class Tienda {
         for (int i = 1; i <= numeroArt; i++) {
 
             System.out.println("Articulo " + i);
-            System.out.println("Identificador:");
-            ident = scanner.nextInt();
+            System.out.println("identificador:");
+            identificador = pediridentificador(articulos);
             System.out.println("Cantidad:");
-            cantidad = scanner.nextInt();
-            scanner.nextLine();
+            cantidad = pedirCantidad();
 
-            if (ident > 0 && ident <= articulos.size()) {
+            Iterator<Articulo> buscarPorIdentificador = articulos.iterator();
 
-                identificadores.add(ident - 1);
-                cantidades.add(cantidad);
-                precioFinal += cantidad * articulos.get(ident - 1).getArticuloPrecioVenta();
-
-            } else {
-
-                System.out.println("El identificador no existe");
-                break;
-
+            while (buscarPorIdentificador.hasNext()) {
+                Articulo articuloTemp = buscarPorIdentificador.next();
+                if (articuloTemp.getArticuloIdentificador() == (identificador)) {
+                    precioFinal += cantidad * (articuloTemp.getArticuloPrecioVenta() * (Articulo.IVA + 1));
+                }
             }
+
+            identificadores.add(identificador);
+            cantidades.add(cantidad);
 
         }
 
         System.out.printf("""
                 El precio final sera: %.2f
                 Desea realizar esta compra?:
-                """, precioFinal + (precioFinal * Articulo.IVA));
+                """, precioFinal);
+
         String opcion = scanner.nextLine();
 
         if (opcion.equalsIgnoreCase("si")) {
 
             for (int i = 0; i < identificadores.size(); i++) {
-                int cantidadRestarStock = cantidades.get(i);
-                Articulo articulo = articulos.get(identificadores.get(i));
-                articulo.vender(cantidadRestarStock);
+
+                Iterator<Articulo> buscarPorIdentificador = articulos.iterator();
+
+                while (buscarPorIdentificador.hasNext()) {
+                    Articulo articuloTemp = buscarPorIdentificador.next();
+                    if (articuloTemp.getArticuloIdentificador() == (identificadores.get(i))) {
+                        int cantidadRestarStock = cantidades.get(i);
+                        // Articulo articulo = articulos.get(identificadores.get(i));
+                        Articulo articulo = articuloTemp;
+                        articulo.vender(cantidadRestarStock);
+
+                    }
+                }
             }
 
             System.out.println("Venta realizada con exito");
@@ -246,7 +267,7 @@ public class Tienda {
 
     // ----------------------------------------------------------------------//
     private static String menu() {
-        Scanner scanner = new Scanner(System.in);
+
         System.out.println("""
                 1.Mostrar articulos
                 2.Venta al cliente
@@ -257,5 +278,34 @@ public class Tienda {
         String opcion = scanner.nextLine();
 
         return opcion;
+    }
+
+    public static double pedirPrecio() {
+        String precio;
+        System.out.println("Formato numero decimal (puede o no tener comas)");
+        do {
+            precio = scanner.nextLine();
+        } while (!precio.matches("\\d+([,]\\d+)?"));
+        precio = precio.replace(',', '.');
+        return Double.parseDouble(precio);
+    }
+
+    public static int pedirCantidad() {
+        String cantidad;
+        System.out.println("Formato numero entero");
+        do {
+            cantidad = scanner.nextLine();
+        } while (!cantidad.matches("\\d+"));
+        return Integer.parseInt(cantidad);
+    }
+
+    public static int pediridentificador(ArrayList<Articulo> articulos) {
+        String identificador;
+        System.out.println("Escribe el identificador del articulo (seguire preguntando si no es valido)");
+        do {
+            identificador = scanner.nextLine();
+        } while (!identificador.matches("\\d+") || (Integer.parseInt(identificador)) < 0
+                || (Integer.parseInt(identificador)) > (articulos.size() + 1));
+        return Integer.parseInt(identificador);
     }
 }
