@@ -4,8 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import programacion.tema8.Factura.LineaFactura;
-
 public class Cheatsheet {
     static Scanner scanner = new Scanner(System.in);
     // static: atributo comun a todas los objetos (es de la clase)
@@ -72,7 +70,7 @@ public class Cheatsheet {
 
     // Iterator para arraylists
 
-    // Iterator<Objeto> nombreIterador = obejeto.iterator();
+    // Iterator<Objeto> nombreIterador = lista.iterator();
     // while (buscarPorIdentificador.hasNext()) {
     // Objeto objetoTemp = buscarPorIdentificador.next();
     //
@@ -84,6 +82,6 @@ public class Cheatsheet {
     // Esto dentro de un for para que guarde ordenados los elementos
     // nt frecuencia = Collections.frequency(aleatorios, i);
 
-    //  Al indice luego habria q sumarle 1 porque la lista empieza por 0 y n por 1
+    // Al indice luego habria q sumarle 1 porque la lista empieza por 0 y n por 1
     // int indiceMAximo = frecuencias.indexOf(Collections.max(frecuencias));
 }
