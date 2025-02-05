@@ -24,7 +24,6 @@ public class NumerosLotoTest {
         for (int i = 0; i < combinacion.length; i++) {
             if (i + 1 != combinacion.length)
                 assertTrue(combinacion[i] < combinacion[i + 1]);
-
         }
 
     }
@@ -33,7 +32,6 @@ public class NumerosLotoTest {
     void testRango() {
         for (int i = 0; i < combinacion.length; i++) {
             assertTrue(combinacion[i] >= 1 && combinacion[i] <= 49);
-
         }
     }
 
@@ -42,7 +40,6 @@ public class NumerosLotoTest {
         for (int i = 0; i < combinacion.length; i++) {
             if (i + 1 != combinacion.length)
                 assertTrue(combinacion[i] != combinacion[i + 1]);
-
         }
     }
 
