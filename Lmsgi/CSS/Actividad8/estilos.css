@@ -131,7 +131,7 @@
     background-color: yellow;
     align-self: center;
     border-radius: 2px;
-    height: 35%;
+    height: 55%;
 
 
 
@@ -144,7 +144,7 @@
     background-color: yellow;
     align-self: center;
     border-radius: 2px;
-    height: 35%;
+    height: 55%;
 
 
 }
@@ -154,7 +154,7 @@
     background-color: yellow;
     align-self: center;
     border-radius: 2px;
-    height: 35%;
+    height: 55%;
 
 
 
@@ -165,7 +165,7 @@
     background-color: yellow;
     align-self: center;
     border-radius: 2px;
-    height: 35%;
+    height: 55%;
 
 
 }
@@ -245,7 +245,7 @@
 
 
 
-/* no se hacerlo / no me da tiempo*/
+
 .main {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -261,31 +261,44 @@
 
 .main :nth-child(1) {
 
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/All_Gizah_Pyramids.jpg/1200px-All_Gizah_Pyramids.jpg");
+    background-image: url("piramide.jpg");
     grid-area: img-1;
     border-radius: 10px;
+    background-position: center;
+    margin: 20px 20px 20px 20px;
     background-size: cover;
+    background-repeat: no-repeat;
+    background: cover;
 }
 
 .main :nth-child(2) {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/All_Gizah_Pyramids.jpg/1200px-All_Gizah_Pyramids.jpg");
+    background-image: url("mexico.jpg");
     border-radius: 10px;
     grid-area: img-2;
+    margin: 0px 100px 10px 100px;
+    background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .main :nth-child(3) {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/All_Gizah_Pyramids.jpg/1200px-All_Gizah_Pyramids.jpg");
+    background-image: url("roma.jpeg");
     border-radius: 10px;
     grid-area: img-3;
+    background-position: center;
+    margin: 10px 5px 10px 20px;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .main :nth-child(4) {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/All_Gizah_Pyramids.jpg/1200px-All_Gizah_Pyramids.jpg");
+    background-image: url("tajmajal.jpeg");
     border-radius: 10px;
     grid-area: img-4;
+    background-position: center;
+    margin: 10px 20px 10px 5px;
     background-size: cover;
+    background-repeat: no-repeat;
 
 }
 
