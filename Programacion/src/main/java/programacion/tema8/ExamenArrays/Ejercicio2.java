@@ -55,6 +55,7 @@ public class Ejercicio2 {
     // [1,0][1,1][1,2]
     // [2,0][2,1][2,2]
     // Metodo que calcula el numero de lineas que hay en el tablero
+
     public static int numeroLineas(int[][] matriz, int numero) {
 
         if (matriz.length != matriz[0].length)
