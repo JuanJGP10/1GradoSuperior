@@ -38,9 +38,10 @@ public class Cheatsheet {
     public static double pedirDouble() {
         String valor;
 
-        System.out.println("Volvere a preguntar si no es un double");
         do {
             valor = scanner.nextLine();
+            if (!valor.matches("\\d+([,]\\d+)?"))
+                System.out.println("formato incorrecto (Decimal)");
         } while (!valor.matches("\\d+([,]\\d+)?"));
         valor = valor.replace(',', '.');
         return Double.parseDouble(valor);
@@ -49,9 +50,10 @@ public class Cheatsheet {
     public static int pedirInt() {
         String valor;
 
-        System.out.println("Volvere a preguntar si no es un int");
         do {
             valor = scanner.nextLine();
+            if (!valor.matches("\\d+"))
+                System.out.println("formato incorrecto (Entero)");
         } while (!valor.matches("\\d+"));
 
         return Integer.parseInt(valor);
@@ -60,9 +62,10 @@ public class Cheatsheet {
     public static String pedirString() {
         String valor;
 
-        System.out.println("Volvere a preguntar si no son solo letras");
         do {
             valor = scanner.nextLine();
+            if (!valor.matches("[A-za-z(\s)?]+"))
+                System.out.println("Formato incorrecto (Cadena de texto)");
         } while (!valor.matches("[A-za-z(\s)?]+"));
 
         return valor;
