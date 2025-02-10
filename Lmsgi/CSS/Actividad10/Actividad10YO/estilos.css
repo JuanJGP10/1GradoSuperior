@@ -1,0 +1,273 @@
+.head {
+    background-color: lightgoldenrodyellow;
+    grid-area: head;
+    text-align: center;
+    align-content: center;
+}
+
+nav {
+    grid-template-columns: inherit;
+    grid-template-rows: 1;
+    display: grid;
+    grid-template-areas:
+        ". box1 box2 box3 box4 .";
+
+
+    background-color: red;
+    grid-area: nav;
+}
+
+nav>:nth-child(1) {
+    grid-area: box1;
+}
+
+nav>:nth-child(2) {
+    grid-area: box2;
+}
+
+nav>:nth-child(3) {
+    grid-area: box3;
+}
+
+nav>:nth-child(4) {
+    grid-area: box4;
+}
+
+nav>div {
+    background-color: yellow;
+    align-self: center;
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+    border-radius: 5px;
+}
+
+aside {
+    background-color: purple;
+    grid-area: aside;
+    margin: 10px 5px 10px 5px;
+    min-height: 100px;
+
+}
+
+footer {
+    background-color: orange;
+    grid-area: footer;
+    text-align: center;
+}
+
+
+
+.contenidoDerecha>:nth-child(1) {
+    grid-area: img1;
+    background-image: url("mexico.jpg");
+
+    border-radius: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 5% 10% 5% 5%;
+
+}
+
+.contenidoDerecha>:nth-child(2) {
+    grid-area: img2;
+    background-image: url("piramide.jpg");
+
+    border-radius: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 5% 10% 5% 5%;
+}
+
+.contenidoDerecha>:nth-child(3) {
+    grid-area: img3;
+    background-image: url("roma.jpeg");
+
+    border-radius: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 5% 10% 5% 5%;
+}
+
+.contenidoDerecha>:nth-child(4) {
+    grid-area: img4;
+    background-image: url("tajmajal.jpeg");
+
+    border-radius: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 5% 5% 5% 5%;
+}
+
+.texto {
+    display: grid;
+    background-color: grey;
+    grid-area: testo;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1em 1fr;
+    grid-template-areas:
+        "title title title"
+        "content content content";
+
+}
+
+@media all and (min-width: 992px) {
+    .layout {
+        background-color: lightblue;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: minmax(60px, auto) minmax(60px, auto) 1fr 1fr;
+
+        grid-template-areas:
+            "head head head head head head"
+            "nav nav nav nav nav nav"
+            "aside aside text text text text"
+            "aside aside text text text text"
+            "aside aside text text text text"
+            "aside aside text text text text"
+            "footer footer footer footer footer footer";
+
+    }
+
+    .contenidoDerecha {
+        grid-area: text;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+            "img1 img2 img3 img4"
+            "testo testo testo testo"
+            "testo testo testo testo"
+            "testo testo testo testo";
+    }
+
+    .texto>h1 {
+        grid-area: title;
+        font-size: 0.8rem;
+
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .texto>span {
+        grid-area: content;
+        font-size: 1rem;
+        line-height: 1.4;
+
+        padding: 10px;
+
+        column-count: 3;
+        column-gap: 20px;
+    }
+
+}
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+    .layout {
+        background-color: lightblue;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: minmax(60px, auto) minmax(60px, auto) 1fr 1fr;
+
+        grid-template-areas:
+            "head head head head head head"
+            "nav nav nav nav nav nav"
+            "aside aside text text text text"
+            "aside aside text text text text"
+            "aside aside text text text text"
+            "aside aside text text text text"
+            "footer footer footer footer footer footer";
+
+    }
+
+    .contenidoDerecha {
+        grid-area: text;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, minmax(14rem, auto)) 1fr;
+        grid-template-areas:
+            "img1 img1 img3 img3"
+            "img2 img2 img4 img4"
+            "testo testo testo testo"
+            "testo testo testo testo"
+            "testo testo testo testo"
+            "testo testo testo testo";
+    }
+
+    .texto>h1 {
+        grid-area: title;
+        font-size: 0.8rem;
+
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .texto>span {
+        grid-area: content;
+        font-size: 1rem;
+        line-height: 1.4;
+
+        padding: 10px;
+
+        column-count: 3;
+        column-gap: 20px;
+    }
+
+}
+
+@media all and (max-width: 576px) {
+    .layout {
+        background-color: lightblue;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: minmax(60px, auto) minmax(60px, auto) 1fr 1fr;
+
+        grid-template-areas:
+            "head head head head head head"
+            "nav nav nav nav nav nav"
+            "text text text text text text"
+            "text text text text text text"
+            "text text text text text text"
+            "aside aside aside aside aside aside"
+            "footer footer footer footer footer footer";
+
+    }
+
+    .contenidoDerecha {
+        grid-area: text;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, minmax(14rem, auto));
+        grid-template-areas:
+            "img1 img1 img1 img1"
+            "testo testo testo testo"
+            "testo testo testo testo"
+            "img2 img2 img2 img2"
+            "img3 img3 img3 img3"
+            "img4 img4 img4 img4"
+
+        ;
+    }
+
+    .texto>h1 {
+        grid-area: title;
+        font-size: 0.8rem;
+
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .texto>span {
+        grid-area: content;
+        font-size: 1rem;
+        line-height: 1.4;
+
+        padding: 10px;
+
+
+    }
+
+}
