@@ -1,0 +1,311 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+main {
+    width: 100%;
+}
+
+
+.head {
+    grid-area: head;
+    background-color: rgb(222, 184, 135);
+    margin: 5px 5px 5px 5px;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    text-align: center;
+    align-content: center;
+}
+
+nav {
+    grid-area: nav;
+
+    display: grid;
+    grid-template-columns: inherit;
+    grid-template-rows: 1;
+    grid-template-areas: ". nav-e1 nav-e2 nav-e3 nav-e4 .";
+    gap: 2px;
+    margin: 0px 5px 0px 5px;
+
+    background-color: rgb(220, 20, 60);
+}
+
+nav>:nth-child(1) {
+    grid-area: nav-e1;
+}
+
+nav>:nth-child(2) {
+    grid-area: nav-e2;
+}
+
+nav>:nth-child(3) {
+    grid-area: nav-e3;
+}
+
+nav>:nth-child(4) {
+    grid-area: nav-e4;
+}
+
+nav>div {
+    height: 50%;
+    align-self: center;
+    background-color: rgb(255, 215, 0);
+    border-right: 3px solid rgb(165, 140, 0);
+    border-bottom: 3px solid rgb(165, 140, 0);
+    border-radius: 2.5px;
+
+    text-align: center;
+    align-content: center;
+
+}
+
+nav>div>span {
+    font-size: clamp(0.6rem, 2vw, 1rem);
+}
+
+aside {
+    grid-area: aside;
+    margin: 10px 5px 10px 5px;
+    min-height: 100px;
+    background-color: rgb(153, 50, 204);
+}
+
+.rightContent>:nth-child(1) {
+    grid-area: r1;
+    background-image: url("./resources/img1.jpg");
+    border-radius: 10px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    margin: 5% 5% 0% 5%;
+}
+
+.rightContent>:nth-child(2) {
+    grid-area: r2;
+    background-image: url("./resources/img2.jpg");
+
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 5% 5% 0% 5%;
+}
+
+.rightContent>:nth-child(3) {
+    grid-area: r3;
+    background-image: url("./resources/img3.jpg");
+
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 5% 5% 0% 5%;
+}
+
+.rightContent>:nth-child(4) {
+    grid-area: r4;
+    background-image: url("./resources/img4.jpg");
+
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 5% 5% 0% 5%;
+}
+
+.textGrid {
+    grid-area: r5;
+    background-color: rgb(129, 129, 129);
+
+    overflow: hidden;
+    margin: 1% 1% 2% 1%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1rem 1fr;
+    grid-template-areas:
+        "title title title"
+        "p1 p1 p1";
+}
+
+
+@media all and (min-width: 992px) {
+    .gridF {
+        min-height: 100vh;
+        display: grid;
+
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: minmax(60px, auto) minmax(50px, auto) 1fr 1fr;
+
+        grid-template-areas:
+            "head head head head head head"
+            "nav  nav  nav  nav  nav  nav"
+            "aside aside right right right right"
+            "aside aside right right right right"
+            "aside aside right right right right"
+            "aside aside right right right right"
+            "footer footer footer footer footer footer";
+
+        background-color: rgb(100, 149, 237);
+    }
+
+    .rightContent {
+        grid-area: right;
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+            "r1 r2 r3 r4"
+            "r5 r5 r5 r5"
+            "r5 r5 r5 r5"
+            "r5 r5 r5 r5";
+
+    }
+
+    .textGrid>h1 {
+
+        grid-area: title;
+        font-size: 0.8rem;
+
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .textGrid>span {
+        grid-area: p1;
+        font-size: 1rem;
+        line-height: 1.4;
+
+        padding: 10px;
+
+        column-count: 3;
+        column-gap: 20px;
+    }
+}
+
+@media all and (max-width: 992px) and (min-width:576px) {
+
+    .gridF {
+        min-height: 100vh;
+        display: grid;
+
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: minmax(60px, auto) minmax(50px, auto) 1fr 1fr;
+
+        grid-template-areas:
+            "head head head head head head"
+            "nav  nav  nav  nav  nav  nav"
+            "aside aside right right right right"
+            "aside aside right right right right"
+            "aside aside right right right right"
+            "aside aside right right right right"
+            "footer footer footer footer footer footer";
+
+        background-color: rgb(100, 149, 237);
+    }
+
+
+    .rightContent {
+        grid-area: right;
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, minmax(14rem, auto)) 1fr;
+        grid-template-areas:
+            "r1 r1 r4 r4"
+            "r2 r2 r3 r3"
+            "r5 r5 r5 r5"
+            "r5 r5 r5 r5"
+            "r5 r5 r5 r5"
+            "r5 r5 r5 r5";
+    }
+
+    .textGrid>h1 {
+        grid-area: title;
+        font-size: 0.8rem;
+
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .textGrid>span {
+        grid-area: p1;
+        font-size: 1rem;
+        line-height: 1.4;
+
+        padding: 10px;
+
+        column-count: 3;
+        column-gap: 20px;
+    }
+}
+
+@media all and (max-width: 576px) {
+
+    .gridF {
+        min-height: 100vh;
+        display: grid;
+
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: minmax(60px, auto) minmax(50px, auto) 1fr 1fr;
+
+        grid-template-areas:
+            "head head head head head head"
+            "nav  nav  nav  nav  nav  nav"
+            "right right right right right right"
+            "right right right right right right"
+            "right right right right right right"
+            "aside aside aside aside aside aside"
+            "footer footer footer footer footer footer";
+
+        background-color: rgb(100, 149, 237);
+    }
+
+
+    .rightContent {
+        grid-area: right;
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(6, minmax(14rem, auto));
+
+        grid-template-areas:
+            "r1 r1 r1 r1"
+            "r5 r5 r5 r5"
+            "r5 r5 r5 r5"
+            "r2 r2 r2 r2"
+            "r3 r3 r3 r3"
+            "r4 r4 r4 r4";
+    }
+
+    .textGrid>h1 {
+        grid-area: title;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .textGrid>span {
+        grid-area: p1;
+        font-size: 1rem;
+        line-height: 1.4;
+
+        padding: 10px;
+    }
+}
+
+/*Responsive*/
+
+footer {
+
+    grid-area: footer;
+    background-color: rgb(255, 165, 0);
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    text-align: center;
+    align-content: center;
+    margin: 5px 5px 5px 5px;
+}
