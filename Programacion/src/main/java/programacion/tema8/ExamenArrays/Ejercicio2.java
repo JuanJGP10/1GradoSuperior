@@ -60,6 +60,7 @@ public class Ejercicio2 {
 
         if (matriz.length != matriz[0].length)
             return 0;
+
         int contadorRaya = 0;
         int contador = 0;
         int contadorJ = 0;

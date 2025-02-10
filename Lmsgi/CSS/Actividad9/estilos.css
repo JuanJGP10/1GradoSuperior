@@ -10,9 +10,9 @@
         "header header header header header header"
         "nav nav nav nav nav nav"
         "aside aside main main main main"
-        "aside aside texto texto texto texto"
-        "aside aside texto texto texto texto"
-        "aside aside texto texto texto texto"
+        "aside aside main main main main"
+        "aside aside main main main main"
+        "aside aside main main main main"
         "footer footer footer footer footer footer";
 }
 
@@ -42,22 +42,14 @@
 .layoutF :nth-child(5) {
     background-color: grey;
     grid-area: texto;
+    height: 94%;
+    max-width: 100%;
 }
 
 .layoutF :nth-child(6) {
     background-color: orangered;
     grid-area: footer;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -119,33 +111,13 @@
 
 
 
-
-
-
-
-
-
-
-
-.aside {
+.purple {
     display: grid;
     grid-template-columns: inherit;
     grid-template-rows: 1;
     gap: 3px;
-    height: 100%;
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -215,29 +187,68 @@
 
 }
 
+.texto {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "parrafo1 parrafo2 parrafo3";
+    gap: 20px;
+    max-width: 990px;
+    margin: auto;
+    padding: 20px;
+
+
+}
+
+.texto :nth-child(1) {
+    background-color: grey;
+    align-self: center;
+    gap: 20px;
+    max-width: 900px;
+    margin: 20px 50px 20px 150px;
+    padding: 20px;
+    grid-area: parrafo1
+}
+
+
+.texto :nth-child(2) {
+    background-color: grey;
+    gap: 20px;
+    max-width: 900px;
+    align-self: center;
+    margin: 20px 50px 20px 150px;
+    grid-area: parrafo2;
+}
+
+
+.texto :nth-child(3) {
+    background-color: grey;
+    gap: 20px;
+    align-self: center;
+    max-width: 900px;
+    margin: 20px 50px 20px 150px;
+    padding: 20px;
+    grid-area: parrafo3;
+}
 
 
 @media screen and (max-width: 576px) {
-    .container {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: (9, 1fr);
+    .layoutF {
+        grid-template-columns: 1fr;
         grid-template-areas:
-            "header "
+            "header"
             "nav"
-            "img-1"
-            "img-1"
-            "img-1"
-            "img-1"
-            "img-1"
-            "img-1"
-            "img-1";
+            "main"
+            "texto"
+            "aside"
+            "footer";
     }
+
+
 }
 
 @media screen and (max-width: 768px) {
-    .container {
-        display: grid;
+    .layoutF {
+
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: (2, 150px);
         grid-template-areas:
@@ -247,10 +258,14 @@
 }
 
 @media screen and (min-width: 992px) {
-    .container {
-        display: grid;
+    .layoutF {
+
+
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(7, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 20px;
+        padding: 20px;
         grid-template-areas:
             "header header header header header header"
             "nav nav nav nav nav nav"
