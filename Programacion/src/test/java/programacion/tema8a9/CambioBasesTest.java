@@ -23,6 +23,7 @@ public class CambioBasesTest {
         assertEquals("-1", CambioBases.decimalBinario(-23));
         assertEquals("11111011010", CambioBases.decimalBinario(2010));
         assertEquals("11000", CambioBases.decimalBinario(24));
+
     }
 
     @Test
