@@ -1,10 +1,10 @@
-package programacion;
+package programacion.nomeacuerdo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Cheatsheet {
+public class nomeacuerdo {
     static Scanner scanner = new Scanner(System.in);
     // static: atributo comun a todas los objetos (es de la clase)
     private static int contadorIds = 0;
@@ -22,7 +22,7 @@ public class Cheatsheet {
     // Constructor se hace asi:
     //
 
-    public Cheatsheet(String nombre, int dineros) {
+    public nomeacuerdo(String nombre, int dineros) {
         this.nombre = nombre;
         this.dineros = dineros;
         this.identificador = contadorIds;
