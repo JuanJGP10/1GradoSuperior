@@ -1,0 +1,106 @@
+header {
+    background-color: #4CAF50;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    grid-area: header;
+    align-content: center;
+}
+
+nav {
+    background-color: #F4C4A4;
+    padding: 30px;
+    grid-area: nav;
+    text-align: center;
+    align-content: center;
+
+}
+
+main {
+
+    background-color: #95CBF5;
+    padding: 30px;
+    grid-area: main;
+}
+
+footer {
+    background-color: #8E54EB;
+    text-align: center;
+    align-content: center;
+    color: white;
+    padding: 20px;
+    grid-area: footer;
+}
+
+aside {
+    background-color: #BF2C3D;
+    padding: 30px;
+    grid-area: aside;
+
+
+}
+
+
+@media all and (min-width:1024px) {
+    body {
+        border: 3px grey;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 4em 1fr 4em;
+        grid-template-areas:
+            "header header header"
+            "nav main aside"
+            "footer footer footer";
+    }
+
+    main>section {
+        column-count: 2;
+        column-gap: 5px;
+        text-align: center;
+    }
+}
+
+@media all and (min-width:768px) and (max-width:1023px) {
+    body {
+        border: 3px grey;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 4em 1fr 4em;
+        grid-template-areas:
+            "header header header"
+            "nav main aside"
+            "footer footer footer";
+    }
+
+    main>section {
+        column-count: 1;
+        column-gap: 5px;
+        text-align: center;
+    }
+}
+
+@media all and (max-width:768px) {
+    body {
+        border: 3px grey;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 4em 1fr 4em;
+        grid-template-areas:
+            "header header header"
+            "nav main aside"
+            "footer footer footer";
+    }
+
+    header {
+        background-color: darkred;
+        padding: 20px;
+        color: white;
+        text-align: center;
+        grid-area: header;
+        align-content: center;
+    }
+
+    main>section {
+        text-align: center;
+    }
+}
