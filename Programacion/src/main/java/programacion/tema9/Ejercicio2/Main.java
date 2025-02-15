@@ -9,6 +9,32 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // Instanciando Perros
+        Perro perro1 = new Perro("Rex", 3, "Saludable", "10 de abril", "Labrador", true);
+        Perro perro2 = new Perro("Max", 2, "Enfermo", "10 de abril", "Bulldog", false);
+
+        // Instanciando Gatos
+        Gato gato1 = new Gato("Whiskers", 4, "Saludable", "10 de abril", "Blanco", true);
+        Gato gato2 = new Gato("Michi", 5, "Saludable", "10 de abril", "Negro", false);
+
+        // Instanciando Loros
+        Loro loro1 = new Loro("Paco", 2, "Saludable", "10 de abril", "alargado", true, "Amazonas", true);
+        Loro loro2 = new Loro("Pepito", 3, "Enfermo", "10 de abril", "corto", false, "Colombia", false);
+
+        // Instanciando Canarios
+        Canario canario1 = new Canario("Piolín", 1, "Saludable", "10 de abril", "alargado", true, "Amarillo", true);
+        Canario canario2 = new Canario("Tweety", 2, "Saludable", "10 de abril", "alargado", true, "Naranja", false);
+
+        // Agregando a la lista
+        Inventario.insertarMascota(perro1);
+        Inventario.insertarMascota(perro2);
+        Inventario.insertarMascota(gato1);
+        Inventario.insertarMascota(gato2);
+        Inventario.insertarMascota(canario2);
+        Inventario.insertarMascota(canario1);
+        Inventario.insertarMascota(loro1);
+        Inventario.insertarMascota(loro2);
+
         String opcion = "";
         do {
 
@@ -170,7 +196,7 @@ public class Main {
                 String vuelaC = "";
 
                 do {
-                    System.out.println("vuelaC? (si/no)");
+                    System.out.println("vuela? (si/no)");
                     vuelaC = scanner.nextLine();
                 } while (!vuelaC.equalsIgnoreCase("si") && !vuelaC.equalsIgnoreCase("no"));
 

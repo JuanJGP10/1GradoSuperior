@@ -13,6 +13,7 @@ class Gato extends Mascotas {
     @Override
     public void muestra() {
         System.out.printf("""
+
                 Gato
                 Nombre: %s
                 Edad: %d
@@ -20,6 +21,7 @@ class Gato extends Mascotas {
                 Fecha de nacimiento: %s
                 Color: %s
                 Tiene pelo largo: %b
+
                 """, nombre, edad, estado, fechaNacimiento, color, peloLargo);
     }
 

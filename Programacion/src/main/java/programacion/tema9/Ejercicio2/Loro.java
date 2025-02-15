@@ -14,6 +14,7 @@ class Loro extends Aves {
     @Override
     public void muestra() {
         System.out.printf("""
+
                 Loro
                 Nombre: %s
                 Edad: %d
@@ -23,6 +24,7 @@ class Loro extends Aves {
                 Vuela: %b
                 Origen: %s
                 Habla: %b
+
                 """, nombre, edad, estado, fechaNacimiento, pico, vuela, origen, habla);
     }
 
