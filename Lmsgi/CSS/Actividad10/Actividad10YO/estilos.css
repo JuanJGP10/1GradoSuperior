@@ -1,19 +1,20 @@
 .head {
-    background-color: lightgoldenrodyellow;
+    background-color: #4b0081;
     grid-area: head;
     text-align: center;
     align-content: center;
+    font-weight: bold;
 }
 
 nav {
     grid-template-columns: inherit;
-    grid-template-rows: 1;
+    grid-template-rows: 1fr;
     display: grid;
     grid-template-areas:
         ". box1 box2 box3 box4 .";
 
 
-    background-color: red;
+    background-color: #650099;
     grid-area: nav;
 }
 
@@ -34,7 +35,7 @@ nav>:nth-child(4) {
 }
 
 nav>div {
-    background-color: yellow;
+    background-color: #d86aff;
     align-self: center;
     text-align: center;
     margin: 5px 5px 5px 5px;
@@ -42,24 +43,28 @@ nav>div {
 }
 
 aside {
-    background-color: purple;
+    background-color: #7f00b2;
+    background-image: url(acuarela-corazones-patrones-fisuras_1108-561.avif);
     grid-area: aside;
     margin: 10px 5px 10px 5px;
-    min-height: 100px;
+    height: 100%;
+
 
 }
 
 footer {
-    background-color: orange;
+    background-color: #650099;
     grid-area: footer;
     text-align: center;
+    align-content: center;
+    font-weight: bold;
 }
 
 
 
 .contenidoDerecha>:nth-child(1) {
     grid-area: img1;
-    background-image: url("mexico.jpg");
+    background-image: url("1a3462ab-56e1-4291-96e0-fa11f1386e8e.jpeg");
 
     border-radius: 5px;
     background-position: center;
@@ -71,18 +76,18 @@ footer {
 
 .contenidoDerecha>:nth-child(2) {
     grid-area: img2;
-    background-image: url("piramide.jpg");
+    background-image: url("34fed5b7-c2ce-4ca0-8ff0-0644a1cb7ea0.jpeg");
 
     border-radius: 5px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 5% 10% 5% 5%;
+    margin: 0% 10% 5% 5%;
 }
 
 .contenidoDerecha>:nth-child(3) {
     grid-area: img3;
-    background-image: url("roma.jpeg");
+    background-image: url("c6f663d9-c679-48e7-80d6-7b9fe77fd9a6.jpeg");
 
     border-radius: 5px;
     background-position: center;
@@ -93,18 +98,18 @@ footer {
 
 .contenidoDerecha>:nth-child(4) {
     grid-area: img4;
-    background-image: url("tajmajal.jpeg");
+    background-image: url("8509fe5d-e381-44c9-9de8-69307074ce34.jpeg");
 
     border-radius: 5px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 5% 5% 5% 5%;
+    margin: 0% 10% 5% 5%;
 }
 
 .texto {
     display: grid;
-    background-color: grey;
+    background-color: #d86aff;
     grid-area: testo;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1em 1fr;
@@ -116,10 +121,10 @@ footer {
 
 @media all and (min-width: 992px) {
     .layout {
-        background-color: lightblue;
+        background-color: whitesmoke;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: minmax(60px, auto) minmax(60px, auto) 1fr 1fr;
+        grid-template-rows: 60px 60px repeat(4, 1fr) 60px;
 
         grid-template-areas:
             "head head head head head head"
@@ -167,10 +172,10 @@ footer {
 
 @media all and (min-width: 576px) and (max-width: 991px) {
     .layout {
-        background-color: lightblue;
+        background-color: whitesmoke;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: minmax(60px, auto) minmax(60px, auto) 1fr 1fr;
+        grid-template-rows: 60px 60px repeat(4, 1fr) 60px;
 
         grid-template-areas:
             "head head head head head head"
@@ -187,7 +192,7 @@ footer {
         grid-area: text;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, minmax(14rem, auto)) 1fr;
+        grid-template-rows: repeat(2, 10em);
         grid-template-areas:
             "img1 img1 img3 img3"
             "img2 img2 img4 img4"
@@ -220,10 +225,10 @@ footer {
 
 @media all and (max-width: 576px) {
     .layout {
-        background-color: lightblue;
+        background-color: whitesmoke;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: minmax(60px, auto) minmax(60px, auto) 1fr 1fr;
+        grid-template-rows: minmax(60px, auto) minmax(50px, auto) 1fr 1fr;
 
         grid-template-areas:
             "head head head head head head"

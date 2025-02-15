@@ -12,7 +12,7 @@ main {
 
 .head {
     grid-area: head;
-    background-color: rgb(222, 184, 135);
+    background-color: #4b0081;
     margin: 5px 5px 5px 5px;
     font-size: clamp(0.9rem, 2vw, 1.5rem);
     text-align: center;
@@ -29,7 +29,7 @@ nav {
     gap: 2px;
     margin: 0px 5px 0px 5px;
 
-    background-color: rgb(220, 20, 60);
+    background-color: #650099;
 }
 
 nav>:nth-child(1) {
@@ -51,9 +51,8 @@ nav>:nth-child(4) {
 nav>div {
     height: 50%;
     align-self: center;
-    background-color: rgb(255, 215, 0);
-    border-right: 3px solid rgb(165, 140, 0);
-    border-bottom: 3px solid rgb(165, 140, 0);
+    background-color: #d86aff;
+
     border-radius: 2.5px;
 
     text-align: center;
@@ -69,12 +68,13 @@ aside {
     grid-area: aside;
     margin: 10px 5px 10px 5px;
     min-height: 100px;
+    background-image: url(./resources/acuarela-corazones-patrones-fisuras_1108-561.avif);
     background-color: rgb(153, 50, 204);
 }
 
 .rightContent>:nth-child(1) {
     grid-area: r1;
-    background-image: url("./resources/img1.jpg");
+    background-image: url("./resources/1a3462ab-56e1-4291-96e0-fa11f1386e8e.jpeg");
     border-radius: 10px;
 
     background-size: cover;
@@ -86,7 +86,7 @@ aside {
 
 .rightContent>:nth-child(2) {
     grid-area: r2;
-    background-image: url("./resources/img2.jpg");
+    background-image: url("./resources/34fed5b7-c2ce-4ca0-8ff0-0644a1cb7ea0.jpeg");
 
     border-radius: 10px;
     background-size: cover;
@@ -97,7 +97,7 @@ aside {
 
 .rightContent>:nth-child(3) {
     grid-area: r3;
-    background-image: url("./resources/img3.jpg");
+    background-image: url("./resources/8509fe5d-e381-44c9-9de8-69307074ce34.jpeg");
 
     border-radius: 10px;
     background-size: cover;
@@ -108,7 +108,7 @@ aside {
 
 .rightContent>:nth-child(4) {
     grid-area: r4;
-    background-image: url("./resources/img4.jpg");
+    background-image: url("./resources/c6f663d9-c679-48e7-80d6-7b9fe77fd9a6.jpeg");
 
     border-radius: 10px;
     background-size: cover;
@@ -119,7 +119,7 @@ aside {
 
 .textGrid {
     grid-area: r5;
-    background-color: rgb(129, 129, 129);
+    background-color: #d86aff;
 
     overflow: hidden;
     margin: 1% 1% 2% 1%;
@@ -149,7 +149,7 @@ aside {
             "aside aside right right right right"
             "footer footer footer footer footer footer";
 
-        background-color: rgb(100, 149, 237);
+        background-color: whitesmoke;
     }
 
     .rightContent {
@@ -205,7 +205,7 @@ aside {
             "aside aside right right right right"
             "footer footer footer footer footer footer";
 
-        background-color: rgb(100, 149, 237);
+        background-color: whitesmoke;
     }
 
 
@@ -262,7 +262,7 @@ aside {
             "aside aside aside aside aside aside"
             "footer footer footer footer footer footer";
 
-        background-color: rgb(100, 149, 237);
+        background-color: whitesmoke;
     }
 
 
@@ -303,7 +303,7 @@ aside {
 footer {
 
     grid-area: footer;
-    background-color: rgb(255, 165, 0);
+    background-color: #650099;
     font-size: clamp(0.9rem, 2vw, 1.5rem);
     text-align: center;
     align-content: center;
