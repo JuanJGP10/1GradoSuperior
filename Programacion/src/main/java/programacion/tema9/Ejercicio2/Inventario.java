@@ -51,6 +51,13 @@ public class Inventario {
         mascotas.clear();
     }
 
+    /**
+     * Metodo para saber a que subclase pertenece el objeto y asi asignarle el tipo
+     * de mascota que corresponda
+     * 
+     * @param m objeto mascota
+     * @return devuelve tipo de enumeracion
+     */
     public static Tipos tipo(Mascotas m) {
         if (m instanceof Perro)
             return Tipos.PERRO;
