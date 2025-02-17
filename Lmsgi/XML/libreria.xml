@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Biblioteca [
+    <!ELEMENT Biblioteca (Libro*)>
+    <!ELEMENT Libro (Titulo, Autor, Genero, AñoPublicacion, ISBN)>
+    <!ELEMENT Titulo (#PCDATA)>
+    <!ELEMENT Autor (#PCDATA)>
+    <!ELEMENT Genero (#PCDATA)>
+    <!ELEMENT AñoPublicacion (#PCDATA)>
+    <!ELEMENT ISBN (#PCDATA)>
+]>
+<Biblioteca>
+    <Libro>
+        <Titulo>El Principito</Titulo>
+        <Autor>Antoine de Saint-Exupéry</Autor>
+        <Genero>Fábula</Genero>
+        <AñoPublicacion>1943</AñoPublicacion>
+        <ISBN>978-3-16-148410-0</ISBN>
+    </Libro>
+    <Libro>
+        <Titulo>Cien Años de Soledad</Titulo>
+        <Autor>Gabriel García Márquez</Autor>
+        <Genero>Realismo mágico</Genero>
+        <AñoPublicacion>1967</AñoPublicacion>
+        <ISBN>978-0-06-112008-4</ISBN>
+    </Libro>
+    <Libro>
+        <Titulo>1984</Titulo>
+        <Autor>George Orwell</Autor>
+        <Genero>Ciencia ficción</Genero>
+        <AñoPublicacion>1949</AñoPublicacion>
+        <ISBN>978-0-452-28423-4</ISBN>
+    </Libro>
+    <Libro>
+        <Titulo>Don Quijote de la Mancha</Titulo>
+        <Autor>Miguel de Cervantes</Autor>
+        <Genero>Novela</Genero>
+        <AñoPublicacion>1605</AñoPublicacion>
+        <ISBN>978-84-376-0494-7</ISBN>
+    </Libro>
+    <Libro>
+        <Titulo>Orgullo y Prejuicio</Titulo>
+        <Autor>Jane Austen</Autor>
+        <Genero>Romance</Genero>
+        <AñoPublicacion>1813</AñoPublicacion>
+        <ISBN>978-1-85326-000-1</ISBN>
+    </Libro>
+    <Libro>
+        <Titulo>La Odisea</Titulo>
+        <Autor>Homero</Autor>
+        <Genero>Épica</Genero>
+        <AñoPublicacion>Siglo VIII a.C.</AñoPublicacion>
+        <ISBN>978-0-14-044911-2</ISBN>
+    </Libro>
+    <Libro>
+        <Titulo>Crónica de una muerte anunciada</Titulo>
+        <Autor>Gabriel García Márquez</Autor>
+        <Genero>Novela</Genero>
+        <AñoPublicacion>1981</AñoPublicacion>
+        <ISBN>978-0-679-72472-3</ISBN>
+    </Libro>
+    <Libro>
+        <Titulo>El Hobbit</Titulo>
+        <Autor>J.R.R. Tolkien</Autor>
+        <Genero>Fantasía</Genero>
+        <AñoPublicacion>1937</AñoPublicacion>
+        <ISBN>978-0-261-10225-4</ISBN>
+    </Libro>
+    <Libro>
+        <Titulo>La Divina Comedia</Titulo>
+        <Autor>Dante Alighieri</Autor>
+        <Genero>Poesía épica</Genero>
+        <AñoPublicacion>1320</AñoPublicacion>
+        <ISBN>978-0-14-044895-5</ISBN>
+    </Libro>
+    <Libro>
+        <Titulo>Moby Dick</Titulo>
+        <Autor>Herman Melville</Autor>
+        <Genero>Aventura</Genero>
+        <AñoPublicacion>1851</AñoPublicacion>
+        <ISBN>978-1-85326-008-7</ISBN>
+    </Libro>
+</Biblioteca>
