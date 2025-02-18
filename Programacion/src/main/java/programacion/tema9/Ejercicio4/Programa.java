@@ -10,24 +10,25 @@ public class Programa {
         Empleado emp2 = new Empleado("87654321B", "Ana Lopez", 2500);
 
         // Añadir empleados a la empresa
-        miEmpresa.agregarEmpleado(emp1);
-        miEmpresa.agregarEmpleado(emp2);
+        miEmpresa.añadirEmpleados(emp1);
+        miEmpresa.añadirEmpleados(emp2);
 
         // Listar empleados
         System.out.println("Empleados en la empresa:");
-        miEmpresa.listarEmpleados();
+        miEmpresa.mostrarInformacionImportante();
 
         // Mostrar total de sueldos brutos y netos
-        System.out.println("Total sueldos brutos: " + miEmpresa.calcularTotalSueldosBrutos());
-        System.out.println("Total sueldos netos: " + miEmpresa.calcularTotalSueldosNetos());
+        System.out.println("Total sueldos brutos: " + miEmpresa.sumaSueldosBrutos());
+        System.out.println("Total sueldos netos: " + miEmpresa.sumaSueldosNetos());
 
         // Eliminar un empleado
-        miEmpresa.eliminarEmpleado("12345678A");
+        miEmpresa.eliminarEmpleados("Juan Perez");
         System.out.println("Empleados después de eliminar a Juan Perez:");
-        miEmpresa.listarEmpleados();
+
+        miEmpresa.mostrarInformacionEmpleados();
 
         // Mostrar total de sueldos brutos y netos después de la eliminación
-        System.out.println("Total sueldos brutos después de eliminar: " + miEmpresa.calcularTotalSueldosBrutos());
-        System.out.println("Total sueldos netos después de eliminar: " + miEmpresa.calcularTotalSueldosNetos());
+        System.out.println("Total sueldos brutos después de eliminar: " + miEmpresa.sumaSueldosBrutos());
+        System.out.println("Total sueldos netos después de eliminar: " + miEmpresa.sumaSueldosNetos());
     }
 }
