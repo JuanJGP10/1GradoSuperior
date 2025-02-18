@@ -1,6 +1,6 @@
 package programacion.tema9.Ejercicio1;
 
-class Satelite extends Astros {
+public class Satelite extends Astros {
 
     private double distanciaAlPlaneta;
     private double orbitaPlanetaria;
@@ -14,7 +14,7 @@ class Satelite extends Astros {
         this.distanciaAlPlaneta = distanciaAlPlaneta;
         this.orbitaPlanetaria = orbitaPlanetaria;
         this.planetaPerteneciente = planetaPerteneciente;
-        this.nombre = nombre;
+
     }
 
     @Override

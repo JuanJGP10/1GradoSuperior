@@ -1,6 +1,6 @@
 package programacion.tema9.Ejercicio2;
 
-class Canario extends Aves {
+public class Canario extends Aves {
     private String color;
     private boolean canta;
 

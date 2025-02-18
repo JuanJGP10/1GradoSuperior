@@ -1,6 +1,6 @@
 package programacion.tema9.Ejercicio1;
 
-abstract class Astros {
+public abstract class Astros {
     protected String nombre;
     protected double radioEcuatorial;
     protected double rotacionSobreSuEje;
@@ -10,7 +10,7 @@ abstract class Astros {
 
     public Astros(double radioEcuatorial, double rotacionSobreSuEje, double masa, double temperaturaMedia,
             double gravedad, String nombre) {
-
+        this.nombre = nombre;
         this.radioEcuatorial = radioEcuatorial;
         this.rotacionSobreSuEje = rotacionSobreSuEje;
         this.masa = masa;

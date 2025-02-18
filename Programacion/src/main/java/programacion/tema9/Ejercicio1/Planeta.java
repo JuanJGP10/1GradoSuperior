@@ -1,6 +1,6 @@
 package programacion.tema9.Ejercicio1;
 
-class Planeta extends Astros {
+public class Planeta extends Astros {
 
     private double distanciaAlSol;
     private double orbitaAlSol;
@@ -10,7 +10,6 @@ class Planeta extends Astros {
             double gravedad, double distanciaAlSol, double orbitaAlSol, boolean tieneSatelites, String nombre) {
 
         super(radioEcuatorial, rotacionSobreSuEje, masa, temperaturaMedia, gravedad, nombre);
-        this.nombre = nombre;
         this.distanciaAlSol = distanciaAlSol;
         this.orbitaAlSol = orbitaAlSol;
         this.tieneSatelites = tieneSatelites;

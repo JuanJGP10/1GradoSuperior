@@ -64,9 +64,9 @@ public class nomeacuerdo {
 
         do {
             valor = scanner.nextLine();
-            if (!valor.matches("[A-za-z(\s)?]+"))
+            if (!valor.matches("[A-Za-z(\s)?]+"))
                 System.out.println("Formato incorrecto (Cadena de texto)");
-        } while (!valor.matches("[A-za-z(\s)?]+"));
+        } while (!valor.matches("[A-Za-z(\s)?]+"));
 
         return valor;
     }
