@@ -20,7 +20,7 @@ public abstract class Mascotas {
     }
 
     public void morir() {
-        System.out.println("Passed away... RIP");
+        this.estado = "muerto";
     }
 
     public abstract void habla();
