@@ -1,6 +1,6 @@
 package programacion.tema9.Ejercicio1;
 
-abstract class Astros {
+public abstract class Astros {
     protected String nombre;
     protected double radioEcuatorial;
     protected double rotacionSobreSuEje;

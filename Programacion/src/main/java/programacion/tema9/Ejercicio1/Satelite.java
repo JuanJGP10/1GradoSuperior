@@ -1,6 +1,6 @@
 package programacion.tema9.Ejercicio1;
 
-class Satelite extends Astros {
+public class Satelite extends Astros {
 
     private double distanciaAlPlaneta;
     private double orbitaPlanetaria;

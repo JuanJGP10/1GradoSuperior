@@ -1,6 +1,6 @@
 package programacion.tema9.Ejercicio1;
 
-class Planeta extends Astros {
+public class Planeta extends Astros {
 
     private double distanciaAlSol;
     private double orbitaAlSol;
@@ -28,7 +28,8 @@ class Planeta extends Astros {
                 Masa: %.2f
                 Temperatura media: %.2f
                 Gravedad: %.2f
-                """, nombre, distanciaAlSol, orbitaAlSol, tieneSatelites, radioEcuatorial, rotacionSobreSuEje, masa,
+                """, nombre, distanciaAlSol, orbitaAlSol, tieneSatelites, radioEcuatorial,
+                rotacionSobreSuEje, masa,
                 temperaturaMedia, gravedad);
     }
 }
