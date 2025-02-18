@@ -1,6 +1,6 @@
 package programacion.tema9.Ejercicio2;
 
-class Gato extends Mascotas {
+public class Gato extends Mascotas {
     private String color;
     private boolean peloLargo;
 

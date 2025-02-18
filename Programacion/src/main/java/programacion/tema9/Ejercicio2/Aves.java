@@ -1,6 +1,6 @@
 package programacion.tema9.Ejercicio2;
 
-abstract class Aves extends Mascotas {
+public abstract class Aves extends Mascotas {
     protected String pico;
     protected boolean vuela;
 

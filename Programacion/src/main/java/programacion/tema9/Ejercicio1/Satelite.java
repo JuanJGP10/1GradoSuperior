@@ -14,7 +14,7 @@ public class Satelite extends Astros {
         this.distanciaAlPlaneta = distanciaAlPlaneta;
         this.orbitaPlanetaria = orbitaPlanetaria;
         this.planetaPerteneciente = planetaPerteneciente;
-        this.nombre = nombre;
+
     }
 
     @Override

@@ -1,6 +1,6 @@
 package programacion.tema9.Ejercicio2;
 
-abstract class Mascotas {
+public abstract class Mascotas {
     protected String nombre;
     protected int edad;
     protected String estado;
@@ -20,7 +20,7 @@ abstract class Mascotas {
     }
 
     public void morir() {
-        System.out.println("Passed away... RIP");
+        this.estado = "muerto";
     }
 
     public abstract void habla();

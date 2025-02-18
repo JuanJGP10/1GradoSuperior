@@ -1,6 +1,6 @@
 package programacion.tema9.Ejercicio2;
 
-class Loro extends Aves {
+public class Loro extends Aves {
     private String origen;
     private boolean habla;
 

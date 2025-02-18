@@ -10,7 +10,6 @@ public class Planeta extends Astros {
             double gravedad, double distanciaAlSol, double orbitaAlSol, boolean tieneSatelites, String nombre) {
 
         super(radioEcuatorial, rotacionSobreSuEje, masa, temperaturaMedia, gravedad, nombre);
-        this.nombre = nombre;
         this.distanciaAlSol = distanciaAlSol;
         this.orbitaAlSol = orbitaAlSol;
         this.tieneSatelites = tieneSatelites;
@@ -28,6 +27,7 @@ public class Planeta extends Astros {
                 Masa: %.2f
                 Temperatura media: %.2f
                 Gravedad: %.2f
+
                 """, nombre, distanciaAlSol, orbitaAlSol, tieneSatelites, radioEcuatorial,
                 rotacionSobreSuEje, masa,
                 temperaturaMedia, gravedad);

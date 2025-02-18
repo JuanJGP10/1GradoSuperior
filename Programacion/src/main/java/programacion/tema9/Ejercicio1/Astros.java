@@ -10,7 +10,7 @@ public abstract class Astros {
 
     public Astros(double radioEcuatorial, double rotacionSobreSuEje, double masa, double temperaturaMedia,
             double gravedad, String nombre) {
-
+        this.nombre = nombre;
         this.radioEcuatorial = radioEcuatorial;
         this.rotacionSobreSuEje = rotacionSobreSuEje;
         this.masa = masa;
