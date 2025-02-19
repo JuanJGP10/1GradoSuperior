@@ -17,4 +17,8 @@ public abstract class Propiedad extends Casilla {
     }
 
     public abstract int getAlquiler(int modificador);
+
+    public void setPropietario(int propietario) {
+        this.propietario = propietario;
+    }
 }

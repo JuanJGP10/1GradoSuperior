@@ -1,6 +1,6 @@
 package programacion.tema9.Monopoly;
 
-public class Terreno extends Propiedad {
+public class Terreno extends Propiedad implements Comprable {
     private ColorTerreno color;
     private int precioAlquiler;
 
@@ -44,6 +44,13 @@ public class Terreno extends Propiedad {
         return String.format(
                 "Terreno {Nombre: %s, Código: %s, Color: %s, Precio: %d, Precio Alquiler: %d, Hipoteca: %d}",
                 getNombre(), getCodigo(), getColor(), precio, precioAlquiler, hipoteca);
+    }
+
+    @Override
+    public void comprar(int i) {
+        if (this.getPropietario() == -1) {
+            setPropietario(i);
+        }
     }
 
 }
