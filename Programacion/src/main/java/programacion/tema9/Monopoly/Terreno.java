@@ -2,11 +2,11 @@ package programacion.tema9.Monopoly;
 
 public class Terreno extends Propiedad {
     private ColorTerreno color;
-    private double precioAlquiler;
+    private int precioAlquiler;
 
-    public Terreno(String nombre, int precio, int hipoteca, int propietario, ColorTerreno color,
-            double precioAlquiler) {
-        super(nombre, precio, hipoteca, propietario);
+    public Terreno(String nombre, int precio, int hipoteca, ColorTerreno color,
+            int precioAlquiler) {
+        super(nombre, precio, hipoteca);
         this.color = color;
         this.precioAlquiler = precioAlquiler;
     }
@@ -23,14 +23,27 @@ public class Terreno extends Propiedad {
         return precioAlquiler;
     }
 
-    public void setPrecioAlquiler(double precioAlquiler) {
+    public void setPrecioAlquiler(int precioAlquiler) {
         this.precioAlquiler = precioAlquiler;
     }
 
     @Override
     public int getAlquiler(int modificador) {
+        int suplemento = 1;
+        if (modificador > 4) {
+            return precioAlquiler * 10;
+        } else {
+            suplemento = modificador * precioAlquiler;
+            return precioAlquiler + suplemento;
+        }
 
-        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Terreno {Nombre: %s, Código: %s, Color: %s, Precio: %d, Precio Alquiler: %d, Hipoteca: %d}",
+                getNombre(), getCodigo(), getColor(), precio, precioAlquiler, hipoteca);
     }
 
 }
