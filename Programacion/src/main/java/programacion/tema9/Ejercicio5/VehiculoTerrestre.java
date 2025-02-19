@@ -5,10 +5,11 @@ public class VehiculoTerrestre extends Vehiculo {
 
     public VehiculoTerrestre(String matricula, String modelo, int numeroRuedas) {
         super(matricula, modelo);
-        this.numeroRuedas = numeroRuedas;
-
-        if (!matricula.matches("\\d{4}[A-Z]{3}")) {
-            return;
+        if (matricula.matches("\\d{4}[A-Za-z]{3}")) {
+            this.numeroRuedas = numeroRuedas;
+        } else {
+            this.numeroRuedas = 0;
+            System.out.println("Matricula invalida");
         }
 
     }

@@ -1,0 +1,1 @@
+cmd.exe /X /D /C ""C:\Users\Juan\AppData\Local\Programs\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin\javadoc.exe" -J-Duser.language= -J-Duser.country= @options @packages"

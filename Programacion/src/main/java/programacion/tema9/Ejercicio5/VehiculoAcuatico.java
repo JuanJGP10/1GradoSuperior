@@ -5,7 +5,12 @@ public class VehiculoAcuatico extends Vehiculo {
 
     public VehiculoAcuatico(String matricula, String modelo, double eslora) {
         super(matricula, modelo);
-        this.eslora = eslora;
+        if (matricula.matches("[A-Za-z]{3,10}")) {
+            this.eslora = eslora;
+        } else {
+            this.eslora = 0;
+            System.out.println("Matricula invalida");
+        }
     }
 
     public double getEslora() {

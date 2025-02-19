@@ -1,0 +1,23 @@
+-encoding
+'UTF-8'
+-private
+-source
+'21'
+-sourcepath
+'c:/Users/Juan/Desktop/Grado/1GradoSuperior/Programacion/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'c:/Users/Juan/Desktop/Grado/1GradoSuperior/Programacion/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'dam 1.0-SNAPSHOT API'
+-nohelp
+-use
+-version
+-windowtitle
+'dam 1.0-SNAPSHOT API'

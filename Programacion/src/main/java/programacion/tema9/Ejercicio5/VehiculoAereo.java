@@ -5,7 +5,12 @@ public class VehiculoAereo extends Vehiculo {
 
     public VehiculoAereo(String matricula, String modelo, int numAsientos) {
         super(matricula, modelo);
-        this.numAsientos = numAsientos;
+        if (matricula.matches("[A-Z]{4}\\d{6}")) {
+            this.numAsientos = numAsientos;
+        } else {
+            this.numAsientos = 0;
+            System.out.println("Matricula invalida");
+        }
     }
 
     public int getNumAsientos() {
