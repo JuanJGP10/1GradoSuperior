@@ -43,9 +43,19 @@ public class Tablero {
     public ArrayList<Terreno> listarTerrenos(int jugador) {
         ArrayList<Terreno> lista = new ArrayList<>();
 
+        // for (Casilla casilla : casillas) {
+        // if (casilla instanceof Terreno terreno) {
+        // Terreno terreno = (Terreno) casilla;
+        // if (terreno.getPropietario() == jugador) {
+        // lista.add(terreno);
+        // }
+        // }
+        // }
+        // No hace falta castear si creas el objeto terreno en el instance of, asi lo
+        // puedes hacer directamente
+
         for (Casilla casilla : casillas) {
-            if (casilla instanceof Terreno) {
-                Terreno terreno = (Terreno) casilla;
+            if (casilla instanceof Terreno terreno) {
                 if (terreno.getPropietario() == jugador) {
                     lista.add(terreno);
                 }

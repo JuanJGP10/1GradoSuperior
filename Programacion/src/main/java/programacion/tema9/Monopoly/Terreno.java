@@ -1,6 +1,12 @@
 package programacion.tema9.Monopoly;
 
-public class Terreno extends Propiedad implements Comprable {
+public class Terreno extends Propiedad {
+
+    // public enum ColorTerreno {
+    // ROJO, AMARILLO, VERDE
+    // };
+    // Clase interna (usar si solo se usa la enumeracion aqui, ocmo en este caso)
+    // private Terreno.ColorTerreno color
     private ColorTerreno color;
     private int precioAlquiler;
 
@@ -29,28 +35,44 @@ public class Terreno extends Propiedad implements Comprable {
 
     @Override
     public int getAlquiler(int modificador) {
-        int suplemento = 1;
+
         if (modificador > 4) {
             return precioAlquiler * 10;
         } else {
-            suplemento = modificador * precioAlquiler;
-            return precioAlquiler + suplemento;
+
+            return precioAlquiler + (modificador * precioAlquiler);
         }
 
     }
 
     @Override
     public String toString() {
-        return String.format(
-                "Terreno {Nombre: %s, Código: %s, Color: %s, Precio: %d, Precio Alquiler: %d, Hipoteca: %d}",
-                getNombre(), getCodigo(), getColor(), precio, precioAlquiler, hipoteca);
+        return super.toString() + " Color=" + color + ", PrecioAlquiler=" + precioAlquiler;
     }
 
     @Override
-    public void comprar(int i) {
-        if (this.getPropietario() == -1) {
-            setPropietario(i);
-        }
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((color == null) ? 0 : color.hashCode());
+        result = prime * result + precioAlquiler;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Terreno other = (Terreno) obj;
+        if (color != other.color)
+            return false;
+        if (precioAlquiler != other.precioAlquiler)
+            return false;
+        return true;
     }
 
 }

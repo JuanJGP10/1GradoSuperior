@@ -7,8 +7,7 @@ public class Casilla {
 
     public Casilla(String nombre) {
         this.nombre = nombre;
-        this.codigo = contador;
-        contador++;
+        this.codigo = contador++;
     }
 
     public String getNombre() {
@@ -40,6 +39,11 @@ public class Casilla {
         if (codigo != other.codigo)
             return false;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " Nombre=" + nombre + " Codigo=" + codigo;
     }
 
 }
