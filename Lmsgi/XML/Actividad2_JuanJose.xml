@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+
+<biblioteca>
+  <libro>
+    <titulo>Capeructia Roja</titulo>
+    <autoria>Cape CR</autoria>
+    <editorial>Editoriales CR</editorial>
+    <año>2005</año>
+  </libro>
+  <libro>
+    <titulo>Marte</titulo>
+    <autoria>Simon</autoria>
+    <editorial>Simon SL</editorial>
+    <año>2007</año>
+  </libro>
+</biblioteca>
