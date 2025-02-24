@@ -33,7 +33,7 @@ public class Peon extends Pieza {
         if (!comida) {
             if (comprobarPosicion(x) && comprobarPosicion(y)) {
                 // no se pueda mover en X
-                if (color == ColorPieza.BLANCO && x == posicion.getX()) {
+                if (color.equals(ColorPieza.BLANCO) && x == posicion.getX()) {
                     // pueda moverse dos casillas si esta en y = 1, en tablero seria y = 2
                     if (posicion.getY() == 1 && y == posicion.getY() + 2) {
                         posicion.setLocation(x, y);
@@ -45,7 +45,7 @@ public class Peon extends Pieza {
                     }
                 }
 
-                if (color == ColorPieza.NEGRO && x == posicion.getX()) {
+                if (color.equals(ColorPieza.NEGRO) && x == posicion.getX()) {
                     // pueda moverse dos casillas si esta en y = 1, en tablero seria y = 2
                     if (posicion.getY() == 6 && y == posicion.getY() - 2) {
                         posicion.setLocation(x, y);
