@@ -1,7 +1,9 @@
 package programacion.tema9.Ajedrez;
 
 /**
- * Clase Torre que hereda de pieza donde podremos crear objetos torre
+ * Clase Torre que representa la torre de una partida de ajedrez, ademas, hereda
+ * de pieza
+ * donde podremos crear objetos torre
  */
 public class Torre extends Pieza {
 
@@ -18,22 +20,23 @@ public class Torre extends Pieza {
     }
 
     /**
-     * Sobreescribimos el metodo mover para la torre
+     * Sobreescribimos el metodo mover para la torre donde tendremos en cuenta que
+     * la torre si se mueve en el eje y, no podra hacerlo en el eje x y viceversa
      */
     @Override
     public void mover(int x, int y) {
+
         if (!comida) {
             if (comprobarPosicion(x) && comprobarPosicion(y)) {
+                // Si se mueve en un eje en el otro no puede
                 if (x != posicion.getX()) {
                     if (y != posicion.getY()) {
-                        System.out.println("No puede moverse en esa direccion");
                     } else {
                         posicion.setLocation(x, y);
                     }
 
                 } else if (y != posicion.getY()) {
                     if (x != posicion.getX()) {
-                        System.out.println("No puede moverse en esa direccion");
                     } else {
                         posicion.setLocation(x, y);
                     }
@@ -42,4 +45,5 @@ public class Torre extends Pieza {
         }
 
     }
+
 }

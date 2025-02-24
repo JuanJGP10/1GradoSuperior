@@ -1,5 +1,9 @@
 package programacion.tema9.Ajedrez;
 
+/**
+ * Interfaz que define los metodos para pasar de indices a coordenadas de un
+ * ajedrez real y viceversa
+ */
 public interface JuegoTablero {
     char indiceAPosicion(int indice);
 

@@ -7,7 +7,7 @@ import java.awt.Point;
  * piezas de un tablero de ajedrez
  * 
  */
-public abstract class Pieza {
+public abstract class Pieza implements JuegoTablero {
 
     protected ColorPieza color;
     protected Point posicion;
@@ -122,6 +122,70 @@ public abstract class Pieza {
 
     public void setComida(boolean comida) {
         this.comida = comida;
+    }
+
+    // Estos metodos de la interfaz seran para para convertir las coordenadas de un
+    // tablero de ajedrez, donde las filas van de 1 a 8 y las columnas de A a H, a
+    // los indices de un array, que en este caso van de 0 a 7:
+
+    // Al desarrollarlos aqui los heredan las clases hijas asi no repito codigo
+
+    /**
+     * Metodo para pasar de indice [0,7] a posicion [A-H]
+     * Importante, si se introducen valores que estarian fuera del tablero, se
+     * asignara automaticamente a 0 o a Z
+     * 
+     * @param indice [0,7]
+     * @return [A-H] segun el indice
+     */
+    @Override
+    public char indiceAPosicion(int indice) {
+        if (indice >= 0 && indice <= 7)
+            return "ABCDEFGH".charAt(indice);
+        else
+            return 'Z';
+    }
+
+    /**
+     * Metodo para pasar de indice [0,7] a posicion [1-8]
+     * 
+     * @param indice [0,7]
+     * @return [1,8]
+     */
+    @Override
+    public int indiceAPosicionN(int indice) {
+        if (indice >= 0 && indice <= 7)
+            return indice + 1;
+        else
+            return 0;
+    }
+
+    /**
+     * Metodo para pasar de [A-H] a [0-7]
+     * 
+     * @param posicion [A-H]
+     * @return [0-7]
+     */
+    @Override
+    public int posicionAIndice(char posicion) {
+        if ("ABCDEFGH".indexOf(posicion) != -1)
+            return "ABCDEFGH".indexOf(posicion);
+        else
+            return 0;
+    }
+
+    /**
+     * Metodo para pasar de [1-8] a [0-7]
+     * 
+     * @param posicion [1-8]
+     * @return [0-7]
+     */
+    @Override
+    public int posicionAlIndice(int posicion) {
+        if (posicion >= 1 && posicion <= 8)
+            return posicion - 1;
+        else
+            return 0;
     }
 
 }
