@@ -2,12 +2,24 @@ package programacion.tema9.Ajedrez;
 
 import java.awt.Point;
 
+/**
+ * Clase pieza que sera abstracta y nos servira como plantilla para crear las
+ * piezas de un tablero de ajedrez
+ * 
+ */
 public abstract class Pieza {
 
     protected ColorPieza color;
     protected Point posicion;
     protected boolean comida;
 
+    /**
+     * Constructor que le pasaremos como parametros:
+     * 
+     * @param color color de una clase enumeraciones llamada ColorPieza
+     * @param x     Coordenada x para saber donde estara la pieza en el eje x
+     * @param y     Coordenada y para saber donde estara la pieza en el eje y
+     */
     public Pieza(ColorPieza color, int x, int y) {
         this.color = color;
         this.posicion = new Point(x, y);
@@ -17,14 +29,31 @@ public abstract class Pieza {
             comida = false;
     }
 
+    /**
+     * Constructor pieza sin parametros que llamaremos al constructor anterior de 3
+     * parametros pero poniendo unos valores por defecto
+     */
     public Pieza() {
         this(ColorPieza.BLANCO, 10, 10);
     }
 
+    /**
+     * Constructor pieza que nos servira para crear una copia de una pieza que le
+     * pasemos como parametro
+     * 
+     * @param pieza Pieza ya exitente
+     */
     public Pieza(Pieza pieza) {
         this(pieza.color, pieza.getPosicion().x, pieza.getPosicion().y);
     }
 
+    /**
+     * Metodo abstracto que tendran que sobreescribir las subclases de esta clase.
+     * Es un metodo que usaremos para mover la pieza en el tablero
+     * 
+     * @param x Coordenada x para saber donde estara la pieza en el eje x
+     * @param y Coordenada y para saber donde estara la pieza en el eje y
+     */
     public abstract void mover(int x, int y);
 
     @Override
@@ -36,6 +65,10 @@ public abstract class Pieza {
         return result;
     }
 
+    /**
+     * Metodo equals para comprobar si un objeto es igual que otro segun si es el
+     * mismo tipo de pieza, del mismo color y se encuentra en la misma posición.
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -52,6 +85,13 @@ public abstract class Pieza {
         return true;
     }
 
+    /**
+     * Metodo para comprobar que la pieza este dentro del tablero
+     * 
+     * @param p posicion X o Y, dependiendo de cual estemos introduciendo por
+     *          parametros
+     * @return devuelve false si esta fuera del tablero y true si esta dentro
+     */
     protected static boolean comprobarPosicion(int p) {
         if (p > 7 || p < 0)
             return false;
@@ -59,6 +99,7 @@ public abstract class Pieza {
             return true;
     }
 
+    // Getters y setters
     public ColorPieza getColor() {
         return color;
     }
