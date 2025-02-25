@@ -17,6 +17,7 @@ public class Menu {
                     1. Entrada de un vehiculo
                     2. Salida de vehiculo
                     3. Mostrar vehiculos
+                    4.Salir
                     """);
             opcion = scanner.nextLine();
 
@@ -26,7 +27,7 @@ public class Menu {
                     parking.getParking().add(vehiculo);
                     break;
                 case "2":
-                    salidaVehiculo();
+                    salidaVehiculo(parking.getParking());
                     break;
 
                 case "3":
@@ -49,9 +50,27 @@ public class Menu {
         }
     }
 
-    private static void salidaVehiculo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'salidaVehiculo'");
+    private static void salidaVehiculo(ArrayList<VehiculosGeneral> lista) {
+
+        System.out.println("Cual es la matricula de su coche para sacarlo:");
+        String matricula = scanner.nextLine();
+
+        VehiculosGeneral vehiculoEncontrado = null;
+        if (lista.size() > 0) {
+            for (VehiculosGeneral vehiculosGeneral : lista) {
+                if (vehiculosGeneral.getMatricula().equals(matricula)) {
+                    vehiculoEncontrado = vehiculosGeneral;
+                    break;
+                }
+            }
+            if (vehiculoEncontrado != null) {
+                System.out.println("Has pagado " + vehiculoEncontrado.pagar() + " centimos");
+                lista.remove(lista.indexOf(vehiculoEncontrado));
+
+            } else {
+                System.out.println("vehiculo no encontrado");
+            }
+        }
     }
 
     private static VehiculosGeneral entradaVehiculo() {
@@ -69,21 +88,19 @@ public class Menu {
 
             switch (opcion) {
                 case "1":
-                    System.out.println("Matricula: ");
-                    String matricula = scanner.nextLine();
+
+                    String matricula = obtenerMatricula();
                     vehiculo = new VehiculosGeneral(matricula);
                     break;
                 case "2":
-                    System.out.println("Matricula: ");
-                    String matricula1 = scanner.nextLine();
+                    String matricula1 = obtenerMatricula();
                     System.out.println("Longitud de furgoneta");
                     double longitud = nomeacuerdo.pedirDouble();
                     vehiculo = new Furgonetas(matricula1, longitud);
                     break;
 
                 case "3":
-                    System.out.println("Matricula: ");
-                    String matricula2 = scanner.nextLine();
+                    String matricula2 = obtenerMatricula();
                     System.out.println("Cuantos asientos tiene?:");
                     int asientos = nomeacuerdo.pedirInt();
                     vehiculo = new Autobuses(matricula2, asientos);
@@ -97,5 +114,11 @@ public class Menu {
             return vehiculo;
         } while (!opcion.equals("1") && !opcion.equals("3") && !opcion.equals("2"));
 
+    }
+
+    private static String obtenerMatricula() {
+        System.out.println("Matricula: ");
+        String matricula2 = scanner.nextLine();
+        return matricula2;
     }
 }

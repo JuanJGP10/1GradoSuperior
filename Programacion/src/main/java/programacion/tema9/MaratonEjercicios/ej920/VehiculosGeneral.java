@@ -1,10 +1,11 @@
 package programacion.tema9.MaratonEjercicios.ej920;
 
-import java.time.LocalDate;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
 public class VehiculosGeneral {
     private String matricula;
-    private LocalDate fechaEntrada;
+    private LocalDateTime fechaEntrada;
 
     public VehiculosGeneral(String matricula) {
         this.matricula = matricula;
@@ -19,17 +20,48 @@ public class VehiculosGeneral {
         this.matricula = matricula;
     }
 
-    public LocalDate getFechaEntrada() {
+    @Override
+    public String toString() {
+        return "Matricula: " + matricula + " FechaEntrada: " + fechaEntrada;
+    }
+
+    public double pagar() {
+        LocalDateTime fechaAhora = LocalDateTime.now();
+        long segundosPasados = Duration.between(fechaEntrada, fechaAhora).getSeconds();
+        return segundosPasados * 4;
+    }
+
+    public LocalDateTime getFechaEntrada() {
         return fechaEntrada;
     }
 
-    public void setFechaEntrada(LocalDate fechaEntrada) {
+    public void setFechaEntrada(LocalDateTime fechaEntrada) {
         this.fechaEntrada = fechaEntrada;
     }
 
     @Override
-    public String toString() {
-        return "Matricula: " + matricula + " FechaEntrada: " + fechaEntrada;
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        VehiculosGeneral other = (VehiculosGeneral) obj;
+        if (matricula == null) {
+            if (other.matricula != null)
+                return false;
+        } else if (!matricula.equals(other.matricula))
+            return false;
+        return true;
     }
 
 }
