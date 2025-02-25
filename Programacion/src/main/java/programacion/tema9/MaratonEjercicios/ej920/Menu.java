@@ -88,7 +88,6 @@ public class Menu {
 
             switch (opcion) {
                 case "1":
-
                     String matricula = obtenerMatricula();
                     vehiculo = new VehiculosGeneral(matricula);
                     break;
@@ -98,18 +97,15 @@ public class Menu {
                     double longitud = nomeacuerdo.pedirDouble();
                     vehiculo = new Furgonetas(matricula1, longitud);
                     break;
-
                 case "3":
                     String matricula2 = obtenerMatricula();
                     System.out.println("Cuantos asientos tiene?:");
                     int asientos = nomeacuerdo.pedirInt();
                     vehiculo = new Autobuses(matricula2, asientos);
                     break;
-
                 default:
                     System.out.println("Entrada no esperada");
                     break;
-
             }
             return vehiculo;
         } while (!opcion.equals("1") && !opcion.equals("3") && !opcion.equals("2"));
