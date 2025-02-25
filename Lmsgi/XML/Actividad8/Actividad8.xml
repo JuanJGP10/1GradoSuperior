@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="estilos.css"?>
+<mezclas>
+
+  <mezcla color="Rojo Azul">
+    <resultado1>Lila</resultado1>
+  </mezcla>
+  
+  <mezcla resultado="Rojo Amarillo">
+    <resultado2>Naranja</resultado2>
+  </mezcla>
+  
+  <mezcla resultado="Amarillo Azul Blanco">
+    <resultado3>Turquesa</resultado3>
+  </mezcla>
+  
+  <mezcla color="Amarillo Azul">
+    <resultado4>Verde</resultado4>
+  </mezcla>
+  
+  <mezcla color="Rojo Amarillo Azul">
+    <resultado5>Marrón</resultado5>
+  </mezcla>
+  
+</mezclas>
