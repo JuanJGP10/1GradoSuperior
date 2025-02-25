@@ -26,20 +26,16 @@ public class Torre extends Pieza {
     @Override
     public void mover(int x, int y) {
 
-        if (!comida) {
-            if (comprobarPosicion(x) && comprobarPosicion(y)) {
-                // Si se mueve en un eje en el otro no puede
-                if (x != posicion.getX()) {
-                    if (y != posicion.getY()) {
-                    } else {
-                        posicion.setLocation(x, y);
-                    }
+        if (!comida && comprobarPosicion(x) && comprobarPosicion(y)) {
+            // Si se mueve en un eje en el otro no puede
+            if (x != posicion.getX()) {
+                if (y == posicion.getY()) {
+                    posicion.setLocation(x, y);
+                }
 
-                } else if (y != posicion.getY()) {
-                    if (x != posicion.getX()) {
-                    } else {
-                        posicion.setLocation(x, y);
-                    }
+            } else if (y != posicion.getY()) {
+                if (x == posicion.getX()) {
+                    posicion.setLocation(x, y);
                 }
             }
         }
