@@ -2,6 +2,7 @@ package programacion.tema9.MaratonEjercicios.ej920;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 public class VehiculosGeneral {
     private String matricula;
@@ -27,9 +28,16 @@ public class VehiculosGeneral {
 
     public double pagar() {
         LocalDateTime fechaAhora = LocalDateTime.now();
-        long segundosPasados = Duration.between(fechaEntrada, fechaAhora).getSeconds();
+        long segundosPasados = Duration.between(fechaEntrada,
+                fechaAhora).getSeconds();
         return segundosPasados * 4;
     }
+
+    // public double pagar() {
+    // LocalDateTime fechaAhora = LocalDateTime.now();
+    // long segundosPasados = ChronoUnit.SECONDS.between(fechaEntrada, fechaAhora);
+    // return segundosPasados * 4;
+    // }
 
     public LocalDateTime getFechaEntrada() {
         return fechaEntrada;
