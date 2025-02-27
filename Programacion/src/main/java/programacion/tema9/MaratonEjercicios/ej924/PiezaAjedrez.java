@@ -28,7 +28,7 @@ public abstract class PiezaAjedrez {
     public abstract boolean mover(int fila, int columna);
 
     protected boolean comprobarPosicion(int x) {
-        if (x >= 0 && x <= 7) {
+        if (x >= 1 && x <= 8) {
             return true;
         } else {
             return false;
