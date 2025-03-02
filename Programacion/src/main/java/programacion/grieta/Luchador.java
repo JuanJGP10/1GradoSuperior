@@ -1,6 +1,8 @@
-package prog.thiar.grieta;
+package programacion.grieta;
+
 /**
- * Clase interfaz luchador que implementara estos metodos a las clases que implementen esta interfaz
+ * Clase interfaz luchador que implementara estos metodos a las clases que
+ * implementen esta interfaz
  */
 public interface Luchador {
     int lanzarHabilidad();

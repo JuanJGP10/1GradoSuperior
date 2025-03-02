@@ -1,6 +1,7 @@
 package programacion.tema9.Monopoly;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Tablero {
     private ArrayList<Casilla> casillas = new ArrayList<>();

@@ -2,9 +2,12 @@ package programacion.tema8a9;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CambioBasesTest {
+    @BeforeEach
+
     @Test
     void testBinarioDecimal() {
         assertEquals(10, CambioBases.binarioDecimal("1010"));
