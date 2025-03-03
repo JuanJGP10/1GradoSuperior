@@ -15,15 +15,22 @@ public class Ejercicio4 {
         }
 
         int number = 0;
-        while (number >= 0) {
+        while (true) { // Con while (true) creo un bucle infinito
             try {
+                System.out.println("Valor para ver: ");
                 number = scanner.nextInt();
-                System.out.println(vector[number]);
+                if (number < 0)
+                    break; // Break para salir del bucle si el indice del vector es negativo
+                System.out.println("Valor correspondiente: " + vector[number]);
             } catch (InputMismatchException e) {
                 System.err.println("Formato de indice invalido");
-                scanner.next();
+                scanner.next(); // Si no limpias el buffer lee el caracter infinitamente
+                e.printStackTrace();
+            } catch (ArrayIndexOutOfBoundsException exc) {
+                System.err.println("Error: Índice fuera del rango válido (0 - " + (vector.length - 1) + ").");
+                // No hace falta limpiar el buffer
+                exc.printStackTrace();
             }
-
         }
     }
 }

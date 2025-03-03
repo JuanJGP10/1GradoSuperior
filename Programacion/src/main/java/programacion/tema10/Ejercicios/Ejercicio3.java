@@ -30,6 +30,7 @@ public class Ejercicio3 {
             } catch (InputMismatchException e) {
                 System.err.println("Formato invalido");
                 scanner.next();
+                e.printStackTrace();
             }
 
         }

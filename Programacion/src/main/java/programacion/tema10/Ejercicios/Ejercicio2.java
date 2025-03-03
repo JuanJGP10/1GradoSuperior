@@ -21,12 +21,14 @@ public class Ejercicio2 {
             int a = scanner.nextInt();
             int b = scanner.nextInt();
             int div = a / b;
-            System.out.println("Division =" + div);
+            System.out.println("Division = " + div);
 
         } catch (InputMismatchException miss) {
             System.err.println("Variable no valida");
+            miss.printStackTrace();
         } catch (ArithmeticException art) {
             System.err.println("No se puede dividir entre 0");
+            art.printStackTrace();
         }
 
     }

@@ -47,13 +47,7 @@ public class Equipo {
      */
     public void recibirDaño(int indice, int daño) {
         if (comprobarPosicion(indice) && equipo[indice].vida > 0) {
-            if (equipo[indice] instanceof Campeon c) {
-                c.RecibirHabilidad(daño);
-            }
-            if (equipo[indice] instanceof CriaturaDelVacio vac) {
-                vac.RecibirHabilidad(daño);
-            }
-
+            recibirDaño(indice, daño);
         }
     }
 
@@ -65,13 +59,7 @@ public class Equipo {
      */
     public int lanzarHabilidad(int indice) {
         if (comprobarPosicion(indice) && equipo[indice].vida > 0) {
-            if (equipo[indice] instanceof Campeon c) {
-                return c.lanzarHabilidad();
-            }
-            if (equipo[indice] instanceof CriaturaDelVacio vac) {
-                return vac.lanzarHabilidad();
-            }
-            return 0;
+            return lanzarHabilidad(indice);
 
         } else {
             return 0;

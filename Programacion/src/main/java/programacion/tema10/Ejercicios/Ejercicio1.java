@@ -23,6 +23,7 @@ public class Ejercicio1 {
             System.out.println("Valor introducido: " + valor);
         } catch (InputMismatchException e) {
             System.err.println("Valor no valido");
+            e.printStackTrace();
         }
     }
 }
