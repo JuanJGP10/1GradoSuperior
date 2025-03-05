@@ -1,7 +1,6 @@
 package programacion.tema10.Ejercicio9;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
 
@@ -25,7 +24,6 @@ public class Biblioteca {
     public Optional<Publicacion> buscar(String titulo) throws Exception {
         for (Publicacion publicacion : listaPublicaciones) {
             if (publicacion instanceof Libro l && l.getTitulo().equals(titulo))
-
                 return Optional.of(l);
             if (publicacion instanceof Revista r && r.getNombre().equals(titulo))
                 return Optional.of(r);
@@ -45,7 +43,6 @@ public class Biblioteca {
         for (Publicacion publicacion : listaPublicaciones) {
             if (libro.equals(publicacion))
                 return true;
-
         }
         return false;
 
@@ -88,14 +85,14 @@ public class Biblioteca {
      * ARREGLAR
      */
     public void mostrarLineas() {
-
-        Collections.sort(listaPublicaciones);
+        ArrayList<Publicacion> listaOrdenada = new ArrayList<>(listaPublicaciones);
+        Collections.sort(listaOrdenada);
 
         boolean unaIt = true;
         System.out.println("--------------------------------------");
         System.out.printf("%-4s %-15s %-30s %-15s %-10s\n", "ID", "ISBN", "Titulo", "Autor", "NumeroEjemplares");
         System.out.println("--------------------------------------");
-        for (Publicacion publicacion : listaPublicaciones) {
+        for (Publicacion publicacion : listaOrdenada) {
             if (publicacion instanceof Revista && unaIt) {
                 System.out.println("--------------------------------------");
                 System.out.printf("%-4s %-15s %-30s %-10s\n", "ID", "ISNN", "Nombre", "Numero");

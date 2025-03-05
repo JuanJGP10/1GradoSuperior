@@ -98,6 +98,11 @@ public class Libro extends Publicacion {
                 return false;
         } else if (!autor.equals(other.autor))
             return false;
+
+        // Asi seria si compararamos por id tambien
+        if (!String.valueOf(id).equals(String.valueOf(id)))
+            return false;
+
         return true;
     }
 

@@ -16,6 +16,7 @@ public class Main {
             Autor autor3 = new Autor("George Orwell", "El aNIMAL");
 
             Libro libro1 = new Libro("9780134685991", "Fundamentals of Java", autor1);
+
             Libro libro2 = new Libro("9780131101630", "Introduction to Algorithms", autor1);
             Libro libro3 = new Libro("9780747532743", "Harry Potter", autor2);
             Libro libro4 = new Libro("9780451524935", "1984", autor3);
@@ -38,8 +39,10 @@ public class Main {
 
             b.mostrarLineas();
 
-        } catch (PublicacionException | ValorIncorrecto e) {
-            System.out.println("Error: " + e.getMessage());
+        } catch (PublicacionException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        } catch (ValorIncorrecto e) {
+            System.out.println(e.toString());
         }
 
     }
