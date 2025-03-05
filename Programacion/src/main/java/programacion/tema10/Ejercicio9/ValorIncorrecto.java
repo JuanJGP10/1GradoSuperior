@@ -4,7 +4,9 @@ public class ValorIncorrecto extends Exception {
     private String valor;
 
     public ValorIncorrecto(String valor) {
-        super("Valor incorrecto -->" + valor);
+        // No me lo pide
+        // super("Valor incorrecto -->" + valor);
+        super();
         this.valor = valor;
     }
 

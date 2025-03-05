@@ -1,7 +1,9 @@
 package programacion.tema10.Ejercicio9;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Optional;
 
 public class Biblioteca {
     private static ArrayList<Publicacion> listaPublicaciones = new ArrayList<>();
@@ -14,23 +16,31 @@ public class Biblioteca {
         try {
             listaPublicaciones.add(new Libro(isbn, titulo, autor));
         } catch (ValorIncorrecto e) {
-            e.toString();
-            e.printStackTrace();
-            System.out.println();
+            System.out.println(e.toString());
+            throw new PublicacionException("Error al dar de alta el libro");
         }
 
     }
 
-    public Publicacion buscar(String titulo) throws ValorIncorrecto {
+    public Optional<Publicacion> buscar(String titulo) throws Exception {
         for (Publicacion publicacion : listaPublicaciones) {
             if (publicacion instanceof Libro l && l.getTitulo().equals(titulo))
-                return l;
+
+                return Optional.of(l);
             if (publicacion instanceof Revista r && r.getNombre().equals(titulo))
-                return r;
+                return Optional.of(r);
+
         }
-        throw new ValorIncorrecto(titulo, "no encontrado");
+        return Optional.empty();
     }
 
+    /**
+     * examen alomejor tambien por id?
+     * porque se complica?
+     * 
+     * @param libro
+     * @return
+     */
     public boolean buscarLibro(Libro libro) {
         for (Publicacion publicacion : listaPublicaciones) {
             if (libro.equals(publicacion))
@@ -38,6 +48,9 @@ public class Biblioteca {
 
         }
         return false;
+
+        // Tambien se puede con return publicaciones.contains(libro)
+        // Tambien se puede con return publicaciones.indexOf(libro)
     }
 
     public ArrayList<Revista> revistasOrdenadas() {
@@ -67,35 +80,40 @@ public class Biblioteca {
     }
 
     public void ordenar() {
-        ArrayList<Revista> revistas = revistasOrdenadas();
-        ArrayList<Libro> libros = librosOrdenadas();
-
-        listaPublicaciones.clear();
-
-        for (Libro libro : libros) {
-            listaPublicaciones.add(libro);
-        }
-
-        for (Revista revista : revistas) {
-            listaPublicaciones.add(revista);
-        }
+        Collections.sort(listaPublicaciones);
 
     }
 
+    /**
+     * ARREGLAR
+     */
     public void mostrarLineas() {
+        ArrayList<Publicacion> lista = new ArrayList<>();
+        Biblioteca bi = new Biblioteca();
+        lista
+        Collections.sort(lista);
+
         boolean unaIt = true;
         System.out.println("--------------------------------------");
-        System.out.printf("%-15s %-30s %-15s %-10s\n", "ISBN", "Titulo", "Autor", "NumeroEjemplares");
+        System.out.printf("%-4s %-15s %-30s %-15s %-10s\n", "ID", "ISBN", "Titulo", "Autor", "NumeroEjemplares");
         System.out.println("--------------------------------------");
         for (Publicacion publicacion : listaPublicaciones) {
             if (publicacion instanceof Revista && unaIt) {
                 System.out.println("--------------------------------------");
-                System.out.printf("%-15s %-30s %-10s\n", "ISNN", "Nombre", "Numero");
+                System.out.printf("%-4s %-15s %-30s %-10s\n", "ID", "ISNN", "Nombre", "Numero");
                 System.out.println("--------------------------------------");
                 unaIt = false;
             }
-            publicacion.mostrarEnLinea();
+            
         }
+    }
+
+    public static ArrayList<Publicacion> getListaPublicaciones() {
+        return listaPublicaciones;
+    }
+
+    public static void setListaPublicaciones(ArrayList<Publicacion> listaPublicaciones) {
+        Biblioteca.listaPublicaciones = listaPublicaciones;
     }
 
 }

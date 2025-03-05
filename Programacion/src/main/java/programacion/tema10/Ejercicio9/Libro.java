@@ -1,6 +1,6 @@
 package programacion.tema10.Ejercicio9;
 
-public class Libro extends Publicacion implements Comparable<Libro> {
+public class Libro extends Publicacion {
     private final String isbn;
     private final String titulo;
     private final Autor autor;
@@ -23,20 +23,25 @@ public class Libro extends Publicacion implements Comparable<Libro> {
     }
 
     public void mostrarEnLinea() {
-        System.out.printf("%-15s %-30s %-15s %-10d\n", isbn, titulo,
+        System.out.printf("%4d %-15s %-30s %-15s %-10d\n", id, isbn, titulo,
                 autor.getPseudonimo(), numeroEjemplares);
     }
 
     @Override
-    public int compareTo(Libro otro) {
-        int comparacionTitulo = this.titulo.compareToIgnoreCase(otro.titulo);
+    public int compareTo(Publicacion o) {
+        if (o instanceof Revista)
+            return -1;
+        if (o instanceof Libro l) {
+            int comparacionNombre = this.titulo.compareTo(l.titulo);
 
-        // si comparacion titulo da 0 es que los titulos son iguales
-        if (comparacionTitulo == 0) {
-            return this.autor.compareTo(otro.autor);
+            // si comparacion nombre da 0 es que los nombre son iguales
+            if (comparacionNombre == 0) {
+                return this.isbn.compareTo(l.isbn);
+            }
+
+            return comparacionNombre;
         }
-
-        return comparacionTitulo;
+        return 0;
     }
 
     public String getIsbn() {

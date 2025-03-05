@@ -1,11 +1,11 @@
 package programacion.tema10.Ejercicio9;
 
-public class Revista extends Publicacion implements Comparable<Revista> {
+public class Revista extends Publicacion {
     private final String issn;
     private final String nombre;
     private final int numero;
 
-    public Revista(String issn, String nombre, int numero) throws PublicacionException {
+    public Revista(String issn, String nombre, int numero) {
         if (!issn.matches("[0-9]{8}"))
             throw new PublicacionException("issn incorrecto son 8 digitos");
         if (numero < 0)
@@ -30,20 +30,8 @@ public class Revista extends Publicacion implements Comparable<Revista> {
 
     @Override
     public void mostrarEnLinea() {
-        System.out.printf("%-15s %-30s %-10d\n", issn, nombre,
+        System.out.printf("%4d %-15s %-30s %-10d\n", id, issn, nombre,
                 numero);
-    }
-
-    @Override
-    public int compareTo(Revista otra) {
-        int comparacionNombre = this.nombre.compareToIgnoreCase(otra.nombre);
-
-        // si comparacion nombre da 0 es que los nombre son iguales
-        if (comparacionNombre == 0) {
-            return this.issn.compareTo(otra.issn);
-        }
-
-        return comparacionNombre;
     }
 
     @Override
@@ -75,6 +63,23 @@ public class Revista extends Publicacion implements Comparable<Revista> {
         } else if (!nombre.equals(other.nombre))
             return false;
         return true;
+    }
+
+    @Override
+    public int compareTo(Publicacion o) {
+        if (o instanceof Libro)
+            return 1;
+        if (o instanceof Revista r) {
+            int comparacionNombre = this.nombre.compareTo(r.nombre);
+
+            // si comparacion nombre da 0 es que los nombre son iguales
+            if (comparacionNombre == 0) {
+                return this.issn.compareTo(r.issn);
+            }
+
+            return comparacionNombre;
+        }
+        return 0;
     }
 
 }

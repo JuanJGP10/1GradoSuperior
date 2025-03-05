@@ -26,38 +26,16 @@ public class Main {
             b.añadir(libro1);
             b.añadir(libro2);
             b.añadir(libro3);
+            b.añadir(revista3);
+            b.añadir(revista4);
+            b.añadir(revista5);
+            b.añadir(revista6);
             b.añadir(libro4);
             b.añadir(libro5);
             b.añadir(libro6);
             b.añadir(revista1);
             b.añadir(revista2);
-            b.añadir(revista3);
-            b.añadir(revista4);
-            b.añadir(revista5);
-            b.añadir(revista6);
 
-            System.out.println("""
-
-
-                    ------------------------------------------
-                    Sin ordenar
-                    ___________________________________________
-
-
-                    """);
-            b.mostrarLineas();
-
-            System.out.println("""
-
-
-                    ------------------------------------------
-                    Ordenado
-                    ___________________________________________
-
-
-                    """);
-
-            b.ordenar();
             b.mostrarLineas();
 
         } catch (PublicacionException | ValorIncorrecto e) {
