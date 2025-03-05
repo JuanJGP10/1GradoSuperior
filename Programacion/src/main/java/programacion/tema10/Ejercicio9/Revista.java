@@ -30,7 +30,7 @@ public class Revista extends Publicacion {
 
     @Override
     public void mostrarEnLinea() {
-        System.out.printf("%4d %-15s %-30s %-10d\n", id, issn, nombre,
+        System.out.printf("%-4s %-15s %-30s %-10d\n", String.valueOf(id), issn, nombre,
                 numero);
     }
 

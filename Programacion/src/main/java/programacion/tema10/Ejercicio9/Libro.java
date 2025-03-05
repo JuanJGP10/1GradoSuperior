@@ -23,7 +23,7 @@ public class Libro extends Publicacion {
     }
 
     public void mostrarEnLinea() {
-        System.out.printf("%4d %-15s %-30s %-15s %-10d\n", id, isbn, titulo,
+        System.out.printf("%-4s %-15s %-30s %-15s %-10d\n", String.valueOf(id), isbn, titulo,
                 autor.getPseudonimo(), numeroEjemplares);
     }
 

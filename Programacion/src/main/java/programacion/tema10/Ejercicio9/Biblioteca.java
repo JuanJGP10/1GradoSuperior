@@ -88,10 +88,8 @@ public class Biblioteca {
      * ARREGLAR
      */
     public void mostrarLineas() {
-        ArrayList<Publicacion> lista = new ArrayList<>();
-        Biblioteca bi = new Biblioteca();
-        lista
-        Collections.sort(lista);
+
+        Collections.sort(listaPublicaciones);
 
         boolean unaIt = true;
         System.out.println("--------------------------------------");
@@ -104,7 +102,7 @@ public class Biblioteca {
                 System.out.println("--------------------------------------");
                 unaIt = false;
             }
-            
+            publicacion.mostrarEnLinea();
         }
     }
 
