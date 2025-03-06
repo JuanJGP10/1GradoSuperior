@@ -9,8 +9,7 @@ public class EmpleadoAdministrativo extends Empleado {
     }
 
     public EmpleadoAdministrativo(String dni, String nombre, Direccion direccion) {
-        super(dni, nombre, direccion);
-        setAñosServicio(0);
+        this(dni, nombre, direccion, 0);
     }
 
     @Override
