@@ -1,8 +1,4 @@
-<<<<<<< HEAD:Programacion/src/main/java/programacion/tema10/Examen/examen/src/main/java/examen/EmpleadoDesarrollo.java
-package programacion.tema10.Examen.examen.src.main.java.examen;
-=======
 package programacion.tema10.Examenbien;
->>>>>>> 836fd5250a527698c239f428829112d98c2cb924:Programacion/src/main/java/programacion/tema10/Examenbien/EmpleadoDesarrollo.java
 
 /**
  * Clase Empleado desarrollo que representa a los empleados que so
@@ -100,24 +96,6 @@ public class EmpleadoDesarrollo extends Empleado implements Comparable<EmpleadoD
      */
     @Override
     public double calcularSalario() {
-<<<<<<< HEAD:Programacion/src/main/java/programacion/tema10/Examen/examen/src/main/java/examen/EmpleadoDesarrollo.java
-        return switch (especialidad) {
-            case DESARROLLO -> 3000;
-            case DISEÑO -> 2800;
-            case INFRAESTRUCTURA -> 3200;
-            case GESTION -> 3500;
-        };
-        // if (especialidad.equals(Especialidad.DESARROLLO))
-        // return 3000;
-        // else if (especialidad.equals(Especialidad.DISEÑO))
-        // return 2800;
-        // else if (especialidad.equals(Especialidad.INFRAESTRUCTURA))
-        // return 3200;
-        // else if (especialidad.equals(Especialidad.GESTION))
-        // return 3500;
-        // else
-        // return 0;
-=======
         if (especialidad.equals(Especialidad.DESARROLLO))
             return 3000;
         else if (especialidad.equals(Especialidad.DISEÑO))
@@ -128,7 +106,6 @@ public class EmpleadoDesarrollo extends Empleado implements Comparable<EmpleadoD
             return 3500;
         else
             return 0;
->>>>>>> 836fd5250a527698c239f428829112d98c2cb924:Programacion/src/main/java/programacion/tema10/Examenbien/EmpleadoDesarrollo.java
     }
 
     /**
@@ -155,24 +132,11 @@ public class EmpleadoDesarrollo extends Empleado implements Comparable<EmpleadoD
 
                 for (int i = 0; i < proyectosRealizados.length; i++) {
                     String siguiente = proyectosRealizados[i];
-<<<<<<< HEAD:Programacion/src/main/java/programacion/tema10/Examen/examen/src/main/java/examen/EmpleadoDesarrollo.java
-                    int masGrande = 0;
-=======
                     masGrande = 0;
->>>>>>> 836fd5250a527698c239f428829112d98c2cb924:Programacion/src/main/java/programacion/tema10/Examenbien/EmpleadoDesarrollo.java
 
                     if (siguiente.length() > proyectosRealizados[masGrande].length())
                         masGrande = i;
 
-<<<<<<< HEAD:Programacion/src/main/java/programacion/tema10/Examen/examen/src/main/java/examen/EmpleadoDesarrollo.java
-                    for (int j = 0; j < contador1; j++) {
-                        proyectosComplejos[j] = proyectosRealizados[masGrande];
-                        contador++;
-                    }
-
-                }
-
-=======
                 }
 
                 for (int j = 0; j < contador1; j++) {
@@ -182,7 +146,6 @@ public class EmpleadoDesarrollo extends Empleado implements Comparable<EmpleadoD
 
                 contador1++;
 
->>>>>>> 836fd5250a527698c239f428829112d98c2cb924:Programacion/src/main/java/programacion/tema10/Examenbien/EmpleadoDesarrollo.java
             }
 
         } else {
@@ -191,17 +154,10 @@ public class EmpleadoDesarrollo extends Empleado implements Comparable<EmpleadoD
             for (int i = 0; i < proyectosRealizados.length; i++) {
                 for (int j = 0; j < proyectosRealizados.length; j++) {
                     String siguiente = proyectosRealizados[i];
-<<<<<<< HEAD:Programacion/src/main/java/programacion/tema10/Examen/examen/src/main/java/examen/EmpleadoDesarrollo.java
-                    masGrande = 0;
-
-                    if (siguiente.length() > proyectosRealizados[masGrande].length())
-                        masGrande = i;
-=======
                     masGrande1 = 0;
 
                     if (siguiente.length() > proyectosRealizados[masGrande1].length())
                         masGrande1 = i;
->>>>>>> 836fd5250a527698c239f428829112d98c2cb924:Programacion/src/main/java/programacion/tema10/Examenbien/EmpleadoDesarrollo.java
                 }
                 proyectosRealizados[i] = proyectosRealizados[masGrande1];
             }
@@ -224,12 +180,7 @@ public class EmpleadoDesarrollo extends Empleado implements Comparable<EmpleadoD
         int nombre = this.getNombre().compareTo(e.getNombre());
 
         if (nombre == 0)
-<<<<<<< HEAD:Programacion/src/main/java/programacion/tema10/Examen/examen/src/main/java/examen/EmpleadoDesarrollo.java
-            return Double.valueOf(this.calcularSalario()).compareTo(e.calcularSalario()); // Asi mejor
-        // return (int) (this.calcularSalario() - e.calcularSalario());
-=======
             return (int) (this.calcularSalario() - e.calcularSalario());
->>>>>>> 836fd5250a527698c239f428829112d98c2cb924:Programacion/src/main/java/programacion/tema10/Examenbien/EmpleadoDesarrollo.java
 
         return nombre;
     }
