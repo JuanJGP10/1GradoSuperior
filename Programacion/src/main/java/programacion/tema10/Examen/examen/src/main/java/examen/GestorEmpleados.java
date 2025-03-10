@@ -1,4 +1,4 @@
-package examen;
+package programacion.tema10.Examen.examen.src.main.java.examen;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,20 +10,20 @@ public class GestorEmpleados {
         this.empleados = new ArrayList<>();
     }
 
-    public double calcularTotalSalarios(){
+    public double calcularTotalSalarios() {
         double suma = 0;
         for (Empleado empl : empleados) {
-            suma+=empl.calcularSalario();
+            suma += empl.calcularSalario();
         }
 
         return suma;
     }
 
-    public ArrayList<EmpleadoDesarrollo> desarrolladores(){
+    public ArrayList<EmpleadoDesarrollo> desarrolladores() {
         ArrayList<EmpleadoDesarrollo> lista = new ArrayList<>();
 
         for (Empleado empleado : empleados) {
-            if(empleado instanceof EmpleadoDesarrollo e && e.getEspecialidad().equals(Especialidad.DESARROLLO)) 
+            if (empleado instanceof EmpleadoDesarrollo e && e.getEspecialidad().equals(Especialidad.DESARROLLO))
                 lista.add(e);
         }
 
@@ -32,13 +32,9 @@ public class GestorEmpleados {
         return lista;
     }
 
-
-    public void añadirEmpleado(Empleado e){
-        try {
-            empleados.add(e);
-        } catch (EmpleadoException exc) {
-            exc.getMessage();
-            throw new GestorException("Empleado no dado de alta");
-        }
+    public void añadirEmpleado(Empleado e) {
+        if (e == null)
+            throw new GestorException("Empleado no valido: NULO ");
+        empleados.add(e);
     }
 }

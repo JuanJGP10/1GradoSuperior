@@ -1,6 +1,6 @@
-package examen;
+package programacion.tema10.Examen.examen.src.main.java.examen;
 
-public class EmpleadoAdministrativo extends Empleado{
+public class EmpleadoAdministrativo extends Empleado {
     int añosServicio;
 
     public EmpleadoAdministrativo(String dni, String nombre, Direccion direccion, int añosServicio) {
@@ -9,13 +9,12 @@ public class EmpleadoAdministrativo extends Empleado{
     }
 
     public EmpleadoAdministrativo(String dni, String nombre, Direccion direccion) {
-        super(dni, nombre, direccion);
-        setAñosServicio(0);
+        this(dni, nombre, direccion, 0);
     }
 
     @Override
     public double calcularSalario() {
-        return 2000 + (añosServicio*100);
+        return 2000 + (añosServicio * 100);
     }
 
     public int getAñosServicio() {
@@ -23,10 +22,8 @@ public class EmpleadoAdministrativo extends Empleado{
     }
 
     public void setAñosServicio(int añosServicio) {
-        if(añosServicio<0) throw new EmpleadoException("Los años de servicio no pueden ser negativos");
+        if (añosServicio < 0)
+            throw new EmpleadoException("Los años de servicio no pueden ser negativos");
     }
 
-    
-
-    
 }

@@ -1,5 +1,4 @@
-package examen;
-
+package programacion.tema10.Examen.examen.src.main.java.
 public abstract class Empleado {
     private final String dni;
     private String nombre;
