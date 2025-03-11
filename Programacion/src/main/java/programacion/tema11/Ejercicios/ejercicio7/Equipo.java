@@ -1,4 +1,4 @@
-package programacion.tema11.Ejercicios.ejercicio6;
+package programacion.tema11.Ejercicios.ejercicio7;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -18,6 +18,8 @@ public class Equipo {
                     2.Eliminar jugador
                     3.Consultar salario de jugador
                     4.Incrementar salario a un jugador un 10 %
+                    5. Listar jugadores con su salario
+                    6. Salarios parecidos al introducido
                     """);
             System.out.println("Opcion: ");
             opcion = scanner.nextLine();
@@ -37,14 +39,36 @@ public class Equipo {
                     incrementarSalarioJugador(hashMap);
                     break;
 
-                case "5":
+                case "7":
                     System.out.println("Saliendo....");
                     break;
-
+                case "5":
+                    listarJugadoresConSalario(hashMap);
+                    break;
+                case "6":
+                    salariosParecidos(hashMap);
+                    break;
                 default:
                     break;
             }
-        } while (!opcion.equals("5"));
+        } while (!opcion.equals("7"));
+    }
+
+    private static void salariosParecidos(HashMap<String, Double> hashMap) {
+        System.out.println("Introduce el salario");
+        double salario = nomeacuerdo.pedirDouble();
+
+        for (String string : hashMap.keySet()) {
+            if (hashMap.get(string) > (salario - 6000) && hashMap.get(string) < (salario + 6000))
+                System.out.println("Jugador: " + string + " Salario: " + hashMap.get(string));
+
+        }
+    }
+
+    private static void listarJugadoresConSalario(HashMap<String, Double> hashMap) {
+        for (String string : hashMap.keySet()) {
+            System.out.println("Jugador: " + string + " Salario: " + hashMap.get(string));
+        }
     }
 
     private static void incrementarSalarioJugador(HashMap<String, Double> hashMap) {
