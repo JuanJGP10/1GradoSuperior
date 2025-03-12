@@ -28,5 +28,4 @@ public class Main {
                 "Temperatura maxima: " + tempDias.lastKey() + ",  Numero de apariciones: "
                         + tempDias.get(tempDias.lastKey()).size());
     }
-
 }
