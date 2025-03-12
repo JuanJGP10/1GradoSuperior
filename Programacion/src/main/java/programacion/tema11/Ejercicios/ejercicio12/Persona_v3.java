@@ -1,4 +1,4 @@
-package programacion.tema11.Ejercicios.ejercicio11;
+package programacion.tema11.Ejercicios.ejercicio12;
 
 import java.time.LocalDate;
 
