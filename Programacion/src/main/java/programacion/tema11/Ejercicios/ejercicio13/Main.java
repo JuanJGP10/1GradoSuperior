@@ -3,8 +3,9 @@ package programacion.tema11.Ejercicios.ejercicio13;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
-import java.util.TreeMap;
 import java.util.Map.Entry;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -36,23 +37,25 @@ public class Main {
 
         for (Integer temperatura : tempDias.keySet()) {
             System.out.println("Temperatura: " + temperatura + ",  Distribucion: " + tempDias.get(temperatura));
+
         }
 
         System.out.println("-----------------------------------------------------------");
 
-        TreeMap<Integer, ArrayList<Integer>> tempDiasOrden = new TreeMap<>(
-                new Comparator<Entry<Integer, ArrayList<Integer>>> mapa() {
+        List<Map.Entry<Integer, ArrayList<Integer>>> entradasOrdenadas = new ArrayList<>(tempDias.entrySet());
 
-                    @Override
-                    public int compare(Entry<Integer, ArrayList<Integer>> o1, Entry<Integer, ArrayList<Integer>> o2) {
-                        // TODO Auto-generated method stub
-                        throw new UnsupportedOperationException("Unimplemented method 'compare'");
-                    }
+        entradasOrdenadas.sort(new Comparator<Map.Entry<Integer, ArrayList<Integer>>>() {
 
-                });
+            @Override
+            public int compare(Entry<Integer, ArrayList<Integer>> o1, Entry<Integer, ArrayList<Integer>> o2) {
+                return o2.getValue().size() - o1.getValue().size();
+            }
 
-        for (Integer temperatura : tempDiasOrden.keySet()) {
-            System.out.println("Temperatura: " + temperatura + ",  Distribucion: " + tempDiasOrden.get(temperatura));
+        });
+
+        for (Map.Entry<Integer, ArrayList<Integer>> entrada : entradasOrdenadas) {
+            System.out.println("Temperatura: " + entrada.getKey() + ",  Distribucion: " + entrada.getValue()
+                    + " Veces que hay esta temperatura: " + entrada.getValue().size());
         }
 
         scanner.close();
