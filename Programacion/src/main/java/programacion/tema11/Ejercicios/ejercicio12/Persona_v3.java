@@ -37,11 +37,16 @@ public class Persona_v3 implements Comparable<Persona_v3> {
         return fechaNacimiento;
     }
 
+    // @Override
+    // public int compareTo(Persona_v3 o) {
+    // return email.compareTo(o.email);
+    // }
+
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((email == null) ? 0 : email.hashCode());
+        result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
         return result;
     }
 
@@ -54,18 +59,13 @@ public class Persona_v3 implements Comparable<Persona_v3> {
         if (getClass() != obj.getClass())
             return false;
         Persona_v3 other = (Persona_v3) obj;
-        if (email == null) {
-            if (other.email != null)
+        if (nombre == null) {
+            if (other.nombre != null)
                 return false;
-        } else if (!email.equals(other.email))
+        } else if (!nombre.equals(other.nombre))
             return false;
         return true;
     }
-
-    // @Override
-    // public int compareTo(Persona_v3 o) {
-    // return email.compareTo(o.email);
-    // }
 
     @Override
     public int compareTo(Persona_v3 o) {

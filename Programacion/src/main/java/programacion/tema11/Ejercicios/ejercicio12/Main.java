@@ -3,6 +3,8 @@ package programacion.tema11.Ejercicios.ejercicio12;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,10 +18,25 @@ public class Main {
         lista.add(new Persona_v3("Juam", "665823247", "6", LocalDate.of(2005, 1, 1)));
 
         Collections.sort(lista);
-
+        System.out.println("--------------------------------------------");
+        System.out.println("Arraylist");
         for (Persona_v3 persona : lista) {
             System.out.println(persona);
 
+        }
+        System.out.println("--------------------------------------------");
+        System.out.println("Preserva la ordenacion anterior eliminando duplicados");
+        System.out.println("LinkedHashSet");
+        LinkedHashSet<Persona_v3> linkedHashSet = new LinkedHashSet<>(lista);
+        for (Persona_v3 persona : linkedHashSet) {
+            System.out.println(persona);
+        }
+        System.out.println("--------------------------------------------");
+        System.out.println("Sin ordenar eliminando duplicados");
+        System.out.println("HashSet");
+        HashSet<Persona_v3> hashSet = new HashSet<>(lista);
+        for (Persona_v3 persona : hashSet) {
+            System.out.println(persona);
         }
 
         // ¿Debes usar un Comparator en ambos casos?
