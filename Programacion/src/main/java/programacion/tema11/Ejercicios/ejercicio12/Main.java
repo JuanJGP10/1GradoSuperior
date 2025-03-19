@@ -17,7 +17,7 @@ public class Main {
         lista.add(new Persona_v3("Isma", "665823123", "8", LocalDate.of(2002, 10, 5)));
         lista.add(new Persona_v3("Juam", "665823247", "6", LocalDate.of(2005, 1, 1)));
 
-        Collections.sort(lista);
+        Collections.sort(lista, (s1, s2) -> s1.getNombre().compareTo(s2.getNombre()));
         System.out.println("--------------------------------------------");
         System.out.println("Arraylist");
         for (Persona_v3 persona : lista) {
@@ -40,7 +40,7 @@ public class Main {
         }
 
         // ¿Debes usar un Comparator en ambos casos?
-        // Puedes usar comparable tambien
+        // Puedes usar comparable tambien o lambda
 
     }
 }

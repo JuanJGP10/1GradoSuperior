@@ -2,7 +2,7 @@ package programacion.tema11.Ejercicios.ejercicio12;
 
 import java.time.LocalDate;
 
-public class Persona_v3 implements Comparable<Persona_v3> {
+public class Persona_v3/* implements Comparable<Persona_v3> */ {
     private String nombre;
     private String telefono;
     private String email;
@@ -67,9 +67,9 @@ public class Persona_v3 implements Comparable<Persona_v3> {
         return true;
     }
 
-    @Override
-    public int compareTo(Persona_v3 o) {
-        return nombre.compareTo(o.nombre);
-    }
+    // @Override
+    // public int compareTo(Persona_v3 o) {
+    // return nombre.compareTo(o.nombre);
+    // }
 
 }

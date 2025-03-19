@@ -5,7 +5,7 @@ import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
-        TreeSet<Persona_v3> arbol = new TreeSet<>();
+        TreeSet<Persona_v3> arbol = new TreeSet<>((s1, s2) -> s1.getNombre().compareTo(s2.getNombre()));
 
         arbol.add(new Persona_v3("Juam", "665823247", "1", LocalDate.of(2005, 1, 1)));
         arbol.add(new Persona_v3("Pepe", "665123247", "2", LocalDate.of(2007, 9, 24)));

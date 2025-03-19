@@ -1,6 +1,7 @@
 package programacion.tema11.Ejercicios.ejercicio8;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
@@ -12,11 +13,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int año = scanner.nextInt();
 
-        if ((año % 4 == 0 && año % 100 != 0) || (año % 100 == 0 && año % 400 == 0)) {
+        GregorianCalendar gregorianCalendar = new GregorianCalendar();
+
+        if (gregorianCalendar.isLeapYear(año))
             temp = new int[366];
-        } else {
+        else
             temp = new int[365];
-        }
 
         for (int i = 0; i < temp.length; i++) {
             temp[i] = ThreadLocalRandom.current().nextInt(10, 31);

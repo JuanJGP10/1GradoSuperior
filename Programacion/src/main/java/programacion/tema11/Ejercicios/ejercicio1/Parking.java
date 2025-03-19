@@ -67,26 +67,19 @@ public class Parking {
             opcion = scanner.nextLine();
 
             switch (opcion) {
-                case "1":
+                case "1" -> {
                     System.out.println("Ingresa tu matricula");
                     String matricula = scanner.nextLine();
                     parking.aparcar(matricula);
-                    break;
+                }
 
-                case "2":
-                    parking.desaparcar();
-                    break;
+                case "2" -> parking.desaparcar();
 
-                case "3":
-                    parking.mostrarMatriculas();
-                    break;
+                case "3" -> parking.mostrarMatriculas();
 
-                case "4":
-                    System.out.println("Saliendo...");
-                    break;
+                case "4" -> System.out.println("Saliendo...");
 
-                default:
-                    break;
+                default -> System.out.println("Opcion invalida");
             }
         } while (!opcion.equals("4"));
 
