@@ -22,7 +22,7 @@ public class Main {
         }
 
         System.out.println(
-                "Temperatura maxima: " + tempDias.firstKey() + ",  Numero de apariciones: "
+                "Temperatura minima: " + tempDias.firstKey() + ",  Numero de apariciones: "
                         + tempDias.get(tempDias.firstKey()).size());
         System.out.println(
                 "Temperatura maxima: " + tempDias.lastKey() + ",  Numero de apariciones: "
