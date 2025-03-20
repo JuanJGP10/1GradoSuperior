@@ -10,22 +10,28 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
     public static void main(String[] args) {
         LocalDateTime principio = LocalDateTime.now();
+
         Set<Integer> conjunto = new HashSet<>();
+
         for (int i = 0; i < 100000; i++) {
             conjunto.add(ThreadLocalRandom.current().nextInt(1, 1000001));
         }
+
         LocalDateTime fin = LocalDateTime.now();
+
         System.out.println("Usando set: ");
         System.out.print(ChronoUnit.MILLIS.between(principio, fin) + "\n");
 
         principio = LocalDateTime.now();
 
         Set<Integer> arbol = new TreeSet<>();
+
         for (int i = 0; i < 100000; i++) {
             arbol.add(ThreadLocalRandom.current().nextInt(1, 1000001));
         }
 
         fin = LocalDateTime.now();
+
         System.out.println("Usando Treeset: ");
         System.out.print(ChronoUnit.MILLIS.between(principio, fin) + "\n");
 
