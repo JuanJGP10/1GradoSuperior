@@ -3,7 +3,6 @@ package programacion.tema11.ejercicios_usando_lambda.ejercicio8;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
-import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
@@ -16,10 +15,21 @@ public class Main {
         else
             dias = 365;
 
-        temperaturas.forEach((temp) -> temperaturas.add(ThreadLocalRandom.current().nextInt(10, 31)));
+        for (int i = 0; i < dias; i++) {
+            temperaturas.add(ThreadLocalRandom.current().nextInt(10, 31));
+        }
 
         HashMap<Integer, Integer> tempDias = new HashMap<>();
 
+        temperaturas.forEach(t -> {
+            if (tempDias.get(t) != null)
+                tempDias.put(t, tempDias.get(t) + 1);
+            else
+                tempDias.put(t, 1);
+        });
+
+        tempDias.entrySet().stream()
+                .forEach(str -> System.out.println(str.getKey() + " Aparece: " + str.getValue() + " veces"));
     }
 
 }
