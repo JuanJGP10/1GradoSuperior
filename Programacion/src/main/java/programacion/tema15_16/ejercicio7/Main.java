@@ -14,7 +14,7 @@ public class Main {
 
         biblio.sort(Comparator.comparing(Libro::getPrecio));
 
-        biblio.forEach((s1) -> System.out.println(s1.getTitulo() + " Precio: " + s1.getPrecio()));
+        biblio.forEach(System.out::println);
 
     }
 }

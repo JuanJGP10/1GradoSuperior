@@ -82,26 +82,26 @@ public class Curso {
 
         // b)
         System.out.println("Cantidad de cursos con duracion mayor de 5 horas: " + cursos.stream()
-                .filter((arg) -> arg.duracion > 5)
+                .filter(arg -> arg.duracion > 5)
                 .count());
         // c)
         System.out.println("-------------------------------");
         System.out.println("Cantidad de cursos con duracion menor a 2 horas: " + cursos.stream()
-                .filter((arg) -> arg.duracion < 2)
+                .filter(arg -> arg.duracion < 2)
                 .count());
         // d)
         System.out.println("-------------------------------");
         System.out.println("Titulos de cursos con mas de 50 videos:");
         cursos.stream()
-                .filter((arg) -> arg.getVideos() > 50)
-                .forEach((salida) -> System.out.println(salida.getTitulo()));
+                .filter(arg -> arg.getVideos() > 50)
+                .forEach(salida -> System.out.println(salida.getTitulo()));
         // e)
         System.out.println("-------------------------------");
         System.out.println("3 cursos con mayor duracion:");
         cursos.stream()
                 .limit(3)
                 .sorted((arg1, arg2) -> (int) (arg1.getDuracion() - arg2.getDuracion()))
-                .forEach((salida) -> System.out
+                .forEach(salida -> System.out
                         .println("Titulo: " + salida.getTitulo() + "Duracion: " + salida.getDuracion()));
         System.out.println("-------------------------------");
         // f)
@@ -111,20 +111,20 @@ public class Curso {
         System.out.println("-------------------------------");
         // g)
         System.out.println("Cursos que superen la media de duracion de los cursos:");
-        OptionalDouble mediaDuracion = cursos.stream()
+        double mediaDuracion = cursos.stream()
                 .mapToDouble((Curso::getDuracion))
-                .average();
+                .average().orElse(0);
 
         cursos.stream()
-                .filter((arg) -> arg.getDuracion() > mediaDuracion.getAsDouble())
-                .forEach((salida) -> System.out
+                .filter(arg -> arg.getDuracion() > mediaDuracion)
+                .forEach(salida -> System.out
                         .println("Titulo: " + salida.getTitulo() + " Duracion: " + salida.getDuracion()));
         System.out.println("-------------------------------");
         // h)
         System.out.println("Mostrar la duracion de los cursos con menos de 500 alumnos");
         cursos.stream()
-                .filter((arg) -> arg.getAlumnos() < 500)
-                .forEach((salida) -> System.out
+                .filter(arg -> arg.getAlumnos() < 500)
+                .forEach(salida -> System.out
                         .println("Titulo: " + salida.getTitulo() + " Alumnos: " + salida.getAlumnos() + " Duracion: "
                                 + salida.getDuracion()));
 
@@ -136,13 +136,12 @@ public class Curso {
         System.out.println("-------------------------------");
         // j)
         System.out.println("Arraylist con los titulos de los cursos");
-        ArrayList<String> listaTitulos = new ArrayList<>();
-        cursos.stream().forEach((salida) -> listaTitulos.add(salida.getTitulo()));
+        List<String> list = cursos.stream().map(Curso::getTitulo).toList();
 
         System.out.println("-------------------------------");
         // k)
         System.out.println("Imprimir la lista de titulos:");
-        listaTitulos.forEach((salida) -> System.out.println(salida));
+        list.forEach(System.out::println);
 
     }
 }
