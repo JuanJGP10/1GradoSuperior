@@ -1,8 +1,8 @@
-package programacion.tema11.ejercicios_usando_lambda.ejercicio8;
+package programacion.tema11.ejercicios_usando_lambda.ejercicio13;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
@@ -19,7 +19,7 @@ public class Main {
             temperaturas.add(ThreadLocalRandom.current().nextInt(10, 31));
         }
 
-        HashMap<Integer, Integer> tempDias = new HashMap<>();
+        TreeMap<Integer, Integer> tempDias = new TreeMap<>();
 
         for (int i = 0; i < temperaturas.size(); i++) {
             tempDias.put(temperaturas.get(i), tempDias.getOrDefault(temperaturas.get(i), 0) + 1);
@@ -27,6 +27,10 @@ public class Main {
 
         tempDias.entrySet().stream()
                 .forEach(str -> System.out.println(str.getKey() + " Aparece: " + str.getValue() + " veces"));
+
+        tempDias.entrySet().stream().sorted((s1, s2) -> s1.getValue() - s2.getValue()).forEach(
+                salida -> System.out.println("Temperatura: " + salida.getKey() + " Apariciones: " + salida.getValue()));
+
     }
 
 }
