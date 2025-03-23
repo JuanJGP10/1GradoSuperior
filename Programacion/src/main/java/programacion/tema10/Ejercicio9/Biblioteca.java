@@ -2,6 +2,7 @@ package programacion.tema10.Ejercicio9;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Optional;
 
 public class Biblioteca {
@@ -22,14 +23,8 @@ public class Biblioteca {
     }
 
     public Optional<Publicacion> buscar(String titulo) throws Exception {
-        for (Publicacion publicacion : listaPublicaciones) {
-            if (publicacion instanceof Libro l && l.getTitulo().equals(titulo))
-                return Optional.of(l);
-            if (publicacion instanceof Revista r && r.getNombre().equals(titulo))
-                return Optional.of(r);
-
-        }
-        return Optional.empty();
+        return listaPublicaciones.stream().filter(s -> (s instanceof Libro l && l.getTitulo().equals(titulo))
+                || (s instanceof Revista r && r.getNombre().equals(titulo))).findFirst();
     }
 
     /**
@@ -40,11 +35,7 @@ public class Biblioteca {
      * @return
      */
     public boolean buscarLibro(Libro libro) {
-        for (Publicacion publicacion : listaPublicaciones) {
-            if (libro.equals(publicacion))
-                return true;
-        }
-        return false;
+        return listaPublicaciones.stream().filter((s) -> libro.equals(s)).findAny().isPresent();
 
         // Tambien se puede con return publicaciones.contains(libro)
         // Tambien se puede con return publicaciones.indexOf(libro)
@@ -53,27 +44,13 @@ public class Biblioteca {
     public ArrayList<Revista> revistasOrdenadas() {
         ArrayList<Revista> revistas = new ArrayList<>();
         // Primero añado todas las revistas
-        for (Publicacion publi : listaPublicaciones) {
-            if (publi instanceof Revista r)
-                revistas.add(r);
-        }
 
-        Collections.sort(revistas);
+        listaPublicaciones.stream().filter((s) -> (s instanceof Revista r)).map(s -> (Revista) s)
+                .forEach(revistas::add);
+
+        revistas.sort(Comparator.comparing(Revista::getNombre).thenComparing(Revista::getIssn));
 
         return revistas;
-    }
-
-    private ArrayList<Libro> librosOrdenadas() {
-        ArrayList<Libro> libros = new ArrayList<>();
-        // Primero añado todas las libros
-        for (Publicacion publi : listaPublicaciones) {
-            if (publi instanceof Libro l)
-                libros.add(l);
-        }
-
-        Collections.sort(libros);
-
-        return libros;
     }
 
     public void ordenar() {
