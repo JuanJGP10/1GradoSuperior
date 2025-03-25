@@ -2,7 +2,6 @@ package programacion.tema15_16.ejercicio10;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.OptionalDouble;
 
 public class Curso {
         private String titulo;

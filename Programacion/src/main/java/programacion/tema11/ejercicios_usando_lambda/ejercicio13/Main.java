@@ -1,7 +1,11 @@
 package programacion.tema11.ejercicios_usando_lambda.ejercicio13;
 
+import java.security.KeyStore.Entry;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -28,9 +32,15 @@ public class Main {
         tempDias.entrySet().stream()
                 .forEach(str -> System.out.println(str.getKey() + " Aparece: " + str.getValue() + " veces"));
 
-        tempDias.entrySet().stream().sorted((s1, s2) -> s1.getValue() - s2.getValue()).forEach(
-                salida -> System.out.println("Temperatura: " + salida.getKey() + " Apariciones: " + salida.getValue()));
+        tempDias.entrySet().stream().sorted((s1, s2) -> s1.getValue() -
+                s2.getValue()).forEach(
+                        salida -> System.out
+                                .println("Temperatura: " + salida.getKey() + " Apariciones: " +
+                                        salida.getValue()));
 
+        for (Integer integer : tempDias.keySet()) {
+            System.out.println("LLave " + integer + " Valor: " + tempDias.get(integer));
+        }
     }
 
 }
