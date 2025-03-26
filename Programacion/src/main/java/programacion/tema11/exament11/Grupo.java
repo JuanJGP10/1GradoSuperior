@@ -12,7 +12,7 @@ public class Grupo {
     private HashSet<Personaje> grupo = new HashSet<>();
 
     public boolean incluirPersonaje(final Personaje p) {
-        if (grupo.contains(p))
+        if (grupo.stream().anyMatch(s1 -> s1.equals(p)))
             return false;
 
         grupo.add(p);
@@ -43,7 +43,7 @@ public class Grupo {
     public void retirada() {
         grupo.forEach(s -> {
             try {
-                System.out.println(s.retirarse());
+                s.retirarse();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
