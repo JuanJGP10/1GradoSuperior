@@ -51,7 +51,6 @@ public class Grupo {
     }
 
     public int limpiarGrupo() {
-
         Iterator<Personaje> it = grupo.iterator();
         while (it.hasNext()) {
             Personaje p = it.next();
@@ -94,4 +93,5 @@ public class Grupo {
                 .sorted(Comparator.comparing(Personaje::getFuerza).reversed()).toList();
         return personajesOrdenadosXFuerza;
     }
+
 }

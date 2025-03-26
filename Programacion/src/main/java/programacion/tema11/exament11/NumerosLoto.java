@@ -31,8 +31,8 @@ public class NumerosLoto {
                 .forEach(s -> numeros6.add(s.getKey()));
 
         for (int i = 0; i < array.length; i++) {
-            array[i] = numeros6.stream().sorted((s1, s2) -> s1 - s2).max((s1, s2) -> s1 - s2).get();
-            numeros6.remove(numeros6.stream().sorted((s1, s2) -> s1 - s2).max((s1, s2) -> s1 - s2).get());
+            array[i] = numeros6.stream().min((s1, s2) -> s1 - s2).get();
+            numeros6.remove(numeros6.stream().min((s1, s2) -> s1 - s2).get());
         }
 
         return array;

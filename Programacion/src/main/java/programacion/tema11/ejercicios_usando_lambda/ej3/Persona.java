@@ -1,4 +1,4 @@
-package programacion.tema11.ejercicios_usando_lambda_v2.ej3;
+package programacion.tema11.ejercicios_usando_lambda.ej3;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
