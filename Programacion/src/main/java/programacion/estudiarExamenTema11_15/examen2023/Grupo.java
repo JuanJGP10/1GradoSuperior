@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import programacion.tema11.Ejercicios.ejercicio3.Persona;
+
 public class Grupo {
     private HashSet<Personaje> grupo = new HashSet<>();
 
@@ -19,66 +21,53 @@ public class Grupo {
         return true;
     }
 
-    public /* Optional< */Personaje/* > */ getMiembro(String nombre) {
-
-        for (Personaje personaje : grupo) {
-            if (personaje.getNombre().equals(nombre))
-                return personaje;
-        }
-        return null;
-        // return grupo.stream().filter(s1 ->
-        // s1.getNombre().equalsIgnoreCase(nombre)).findFirst();
+    public Optional<Personaje> getMiembro(String nombre) {
+        return grupo.stream().filter(s -> s.getNombre().equals(nombre)).findFirst();
+        // for (Personaje personaje : grupo) {
+        // if (personaje.getNombre().equals(nombre))
+        // return personaje;
+        // }
+        // return null;
     }
 
     public List<Mago> dameMagos() {
-
-        List<Mago> lista;
-        lista = grupo.stream().filter(s -> (s instanceof Mago)).map(s1 -> (Mago) s1).collect(Collectors.toList());
+        List<Mago> lista = grupo.stream().filter(s -> (s instanceof Mago)).map(s -> (Mago) s)
+                .collect(Collectors.toList());
         return lista;
     }
 
     public void retirada() {
-
-        for (Personaje personaje : grupo) {
+        grupo.forEach(s -> {
             try {
-                System.out.println("Entidad: " + personaje.getNombre() + " Se retira?: " + personaje.retirada());
+                System.out.println("Entidad: " + s.getNombre() + " Se retira?: " + s.retirada());
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-        }
-        // grupo.stream()
-        // .forEach(s1 -> {
+        });
+        // for (Personaje personaje : grupo) {
         // try {
-        // System.out.println("Entidad: " + s1.getNombre() + " Se retira?: " +
-        // s1.retirada());
+        // System.out.println("Entidad: " + personaje.getNombre() + " Se retira?: " +
+        // personaje.retirada());
         // } catch (Exception e) {
-        // e.getMessage();
+        // System.out.println(e.getMessage());
+        // }
         // }
 
-        // });
     }
 
     public void mostrar() {
-        grupo.stream().forEach(System.out::println);
-
-        System.out.println("Fuerza del grupo:  " + grupo.stream().mapToDouble(Personaje::getFuerza).sum());
+        grupo.forEach(System.out::println);
+        System.out.println("Fuerza del grupo:  " + grupo.stream().mapToInt(Personaje::getFuerza).sum());
     }
 
     public int limpiarGrupo() {
-
-        int trollsMuertos = (int) grupo.stream().filter(s -> s.isMuerto() && s instanceof Troll).count();
-        // grupo.forEach(s1 -> {
-        // if ((s1.isMuerto()) && (s1 instanceof Troll))
-        // grupo.remove(s1);
-        // });
-
+        int trollsMuertos = (int) grupo.stream().filter(s -> (s instanceof Troll && s.isMuerto())).count();
         Iterator<Personaje> it = grupo.iterator();
         while (it.hasNext()) {
             Personaje p = it.next();
-            if (p.isMuerto() && p instanceof Troll)
+            if (p.isMuerto())
                 it.remove();
         }
-
         return trollsMuertos;
 
     }

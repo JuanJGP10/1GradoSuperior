@@ -1,5 +1,10 @@
 package programacion.tema10.Examenbien;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+
 /**
  * Clase Empleado desarrollo que representa a los empleados que so
  * desarrolladores de una empresa, hereda de la clase empleado.
@@ -123,45 +128,10 @@ public class EmpleadoDesarrollo extends Empleado implements Comparable<EmpleadoD
             return new String[0];
 
         String[] proyectosComplejos = new String[n];
-        int contador = 0;
-        int contador1 = 1;
-        int masGrande = 0;
-
-        if (proyectosRealizados.length > proyectosComplejos.length) {
-            while (contador < n) {
-
-                for (int i = 0; i < proyectosRealizados.length; i++) {
-                    String siguiente = proyectosRealizados[i];
-                    masGrande = 0;
-
-                    if (siguiente.length() > proyectosRealizados[masGrande].length())
-                        masGrande = i;
-
-                }
-
-                for (int j = 0; j < contador1; j++) {
-                    proyectosComplejos[j] = proyectosRealizados[masGrande];
-                    contador++;
-                }
-
-                contador1++;
-
-            }
-
-        } else {
-
-            int masGrande1 = 0;
-            for (int i = 0; i < proyectosRealizados.length; i++) {
-                for (int j = 0; j < proyectosRealizados.length; j++) {
-                    String siguiente = proyectosRealizados[i];
-                    masGrande1 = 0;
-
-                    if (siguiente.length() > proyectosRealizados[masGrande1].length())
-                        masGrande1 = i;
-                }
-                proyectosRealizados[i] = proyectosRealizados[masGrande1];
-            }
-            return proyectosRealizados;
+        String[] proyectosCopy = Arrays.copyOf(proyectosRealizados, proyectosRealizados.length);
+        Arrays.sort(proyectosCopy, (s1, s2) -> s2.length() - s1.length());
+        for (int i = 0; i < proyectosComplejos.length; i++) {
+            proyectosComplejos[i] = proyectosCopy[i];
         }
         return proyectosComplejos;
 
