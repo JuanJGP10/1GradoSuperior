@@ -51,13 +51,15 @@ public class Grupo {
     }
 
     public int limpiarGrupo() {
+
+        int trollsMuertos = (int) grupo.stream().filter(s -> (s instanceof Troll && s.isMuerto())).count();
         Iterator<Personaje> it = grupo.iterator();
         while (it.hasNext()) {
             Personaje p = it.next();
             if (p instanceof Troll t && t.isMuerto())
                 it.remove();
         }
-        int trollsMuertos = (int) grupo.stream().filter(s -> (s instanceof Troll && s.isMuerto())).count();
+
         /*
          * grupo.stream().filter(s -> (s instanceof Troll t && t.isMuerto())).forEach(s
          * -> {
