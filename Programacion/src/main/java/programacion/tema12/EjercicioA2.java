@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class EjercicioA1 {
+public class EjercicioA2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String entrada = "e";
@@ -23,7 +23,7 @@ public class EjercicioA1 {
 
     }
 
-    public static void muestraInfoRuta(File ruta) throws FileNotFoundException {
+    public static void muestraInfoRuta(File ruta, boolean info) throws FileNotFoundException {
         if (ruta.exists()) {
             if (ruta.isFile()) {
                 System.out.println("[A] " + ruta.getName());
