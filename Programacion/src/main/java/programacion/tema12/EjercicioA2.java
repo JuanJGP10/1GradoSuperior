@@ -2,6 +2,8 @@ package programacion.tema12;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -14,19 +16,20 @@ public class EjercicioA2 {
             entrada = scanner.nextLine();
             File file = new File(entrada);
             try {
-                muestraInfoRuta(file);
+                muestraInfoRuta(file, true);
             } catch (FileNotFoundException e) {
 
-                e.getMessage();
+                System.out.println(e.getMessage());
             }
         }
 
     }
 
     public static void muestraInfoRuta(File ruta, boolean info) throws FileNotFoundException {
+
         if (ruta.exists()) {
             if (ruta.isFile()) {
-                System.out.println("[A] " + ruta.getName());
+                System.out.printf("[A] %s %s\n", ruta.getName(), info ? info(ruta) : "");
 
             }
 
@@ -36,15 +39,19 @@ public class EjercicioA2 {
 
                 for (int i = 0; i < dirfil.length; i++) {
                     if (dirfil[i].isDirectory())
-                        System.out.println("[*] " + dirfil[i].getName());
+                        System.out.printf("[*] %s %s\n", dirfil[i].getName(), info ? info(dirfil[i]) : "");
                     if (dirfil[i].isFile())
-                        System.out.println("[A] " + dirfil[i].getName());
+                        System.out.printf("[A] %s %s\n", dirfil[i].getName(), info ? info(dirfil[i]) : "");
                 }
-
             }
         } else {
             throw new FileNotFoundException("Fichero no encontrado");
         }
 
+    }
+
+    public static String info(File ruta) {
+        Date fecha = new Date(ruta.lastModified());
+        return String.format("Bytes: %-3d LastModified: %-10s ", ruta.length(), fecha);
     }
 }
