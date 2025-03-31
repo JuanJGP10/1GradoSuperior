@@ -15,7 +15,7 @@ public class EjercicioB1 {
          */
 
         Path ruta = Path.of(
-                "C:\\Users\\Juan\\Desktop\\Grado\\1GradoSuperior\\Programacion\\src\\main\\java\\programacion\\tema12\\EjerciciosB\\Documentos\\numeros.txt");
+                "1GradoSuperior/Programacion/src/main/java/programacion/tema12/EjerciciosB/Documentos/numeros.txt");
         try {
             List<String> listaNumeros = Files.readAllLines(ruta);
             System.out
