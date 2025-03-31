@@ -18,12 +18,12 @@ public class EjercicioA4 {
         File fotOrigen = new File(
                 "C:/Users/juani/Desktop/Clase/1GradoSuperior/Programacion/src/main/java/programacion/tema12/ej4/Documentos/Fotografias");
         File fotDestino = new File(
-                "C:/Users/juani/Desktop/Clase/1GradoSuperior/Programacion/src/main/java/programacion/tema12/ej4/Documentos/Mis_cosas");
+                "C:/Users/juani/Desktop/Clase/1GradoSuperior/Programacion/src/main/java/programacion/tema12/ej4/Documentos/Mis_cosas/Fotografias");
 
         File libOrigen = new File(
                 "C:/Users/juani/Desktop/Clase/1GradoSuperior/Programacion/src/main/java/programacion/tema12/ej4/Documentos/Libros");
         File libDestino = new File(
-                "C:/Users/juani/Desktop/Clase/1GradoSuperior/Programacion/src/main/java/programacion/tema12/ej4/Documentos/Mis_cosas");
+                "C:/Users/juani/Desktop/Clase/1GradoSuperior/Programacion/src/main/java/programacion/tema12/ej4/Documentos/Mis_cosas/Libros");
 
         fotOrigen.renameTo(fotDestino);
         libOrigen.renameTo(libDestino);
