@@ -9,9 +9,10 @@ public class EjercicioB3 {
     public static void main(String[] args) {
 
         Path rutaFicheroRead = Path
-                .of("Programacion/src/main/java/programacion/tema12/EjerciciosB/Documentos/usa_personas.txt");
+                .of("1GradoSuperior/Programacion/src/main/java/programacion/tema12/EjerciciosB/Documentos/usa_personas.txt");
         Path rutaFicheroEdit = Path
-                .of("Programacion/src/main/java/programacion/tema12/EjerciciosB/Documentos/usa_personas_sorted.txt");
+                .of("1GradoSuperior/Programacion/src/main/java/programacion/tema12/EjerciciosB/Documentos/usa_personas_sorted.txt");
+
         try {
             List<String> list = Files.readAllLines(rutaFicheroRead);
             list.sort(String::compareTo);

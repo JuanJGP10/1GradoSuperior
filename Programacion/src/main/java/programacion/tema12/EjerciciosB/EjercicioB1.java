@@ -19,9 +19,9 @@ public class EjercicioB1 {
         try {
             List<String> listaNumeros = Files.readAllLines(ruta);
             System.out
-                    .println("Numero mas alto: " + listaNumeros.stream().mapToInt(Integer::parseInt).max().getAsInt());
+                    .println("Numero mas alto: " + listaNumeros.stream().mapToInt(Integer::parseInt).max().orElse(0));
             System.out.println(
-                    "Numero mas pequeño: " + listaNumeros.stream().mapToInt(Integer::parseInt).min().getAsInt());
+                    "Numero mas pequeño: " + listaNumeros.stream().mapToInt(Integer::parseInt).min().orElse(0));
         } catch (IOException e) {
 
             e.printStackTrace();
