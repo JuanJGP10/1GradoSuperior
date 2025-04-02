@@ -52,6 +52,6 @@ public class EjercicioA2 {
 
     public static String info(File ruta) {
         Date fecha = new Date(ruta.lastModified());
-        return String.format("Bytes: %-3d LastModified: %-10s ", ruta.length(), fecha);
+        return String.format("Bytes: %-5s LastModified: %-10s ", String.valueOf(ruta.length()), fecha);
     }
 }
