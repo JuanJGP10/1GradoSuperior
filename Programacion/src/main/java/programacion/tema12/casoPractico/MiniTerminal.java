@@ -4,8 +4,12 @@ import java.io.File;
 import java.util.Scanner;
 
 public class MiniTerminal {
-    private static File directorioActual = new File(System.getProperty("user.dir"));
+    public static File directorioActual = new File(System.getProperty("user.dir"));
     private static MiniFileManager mfm = new MiniFileManager();
+
+    public static File getDirectorioActual() {
+        return directorioActual;
+    }
 
     public static void main(String[] args) {
         String comando;
@@ -14,24 +18,32 @@ public class MiniTerminal {
 
             System.out.print(directorioActual.getAbsolutePath() + " $ ");
             comando = scanner.nextLine().trim();
-            if (comando.equals("exit"))
-                break;
+
             String[] argumentos = comando.split(" ", 3);
 
-            if (argumentos[0].equals("pwd")) {
-                if (argumentos.length != 1)
-                    throw new IllegalArgumentException("exceso de argumentos para este comando");
+            switch (argumentos[0]) {
+                case "pwd" -> {
+                    if (argumentos.length == 1)
+                        System.out.println(mfm.getPwd());
+                    else
+                        System.out.println("El sistema no puede encontrar la ruta especificada.");
+                }
 
-                System.out.println(mfm.getPwd(directorioActual));
+                case "cd" -> {
+                    if (argumentos.length == 2) {
+                        mfm.cd(argumentos[1]);
+                    } else
+                        System.out.println("El sistema no puede encontrar la ruta especificada.");
+                }
 
+                default -> System.out.println("Unexpected Error");
+
+                case "exit" -> {
+                    System.out.println("Saliendo...");
+                    break;
+                }
             }
 
-            if (argumentos[0].equals("cd")) {
-                if (argumentos.length != 2)
-                    throw new IllegalArgumentException("cantidad de argumentos no valida para este comando");
-                File file = new File(directorioActual.getAbsolutePath() + "/" + argumentos[1]);
-                directorioActual.renameTo(file);
-            }
         }
     }
 }
