@@ -14,7 +14,7 @@ public class MiniTerminal {
     public static final String GREEN = "\033[1;32m"; // Verde para usuario@host
     public static final String BLUE = "\033[1;34m"; // Azul para el directorio
     public static final String RESET = "\033[0m"; // Reset para volver al color normal
-    public static final String os = System.getProperty("os.name").toLowerCase();
+    private static final String os = System.getProperty("os.name").toLowerCase();
 
     public static String getComputername() {
         try {
@@ -42,7 +42,6 @@ public class MiniTerminal {
     }
 
     public static String getPrompt() {
-        // Códigos ANSI de colores
 
         String prompt = directorioActual.getAbsolutePath().replace('\\', '/');
         if (os.contains("win"))
@@ -70,14 +69,14 @@ public class MiniTerminal {
                     if (argumentos.length == 1)
                         System.out.println(mfm.getPwd());
                     else
-                        System.out.println("bash: pwd: demasiados argumentos");
+                        System.out.println("bash: pwd: Demasiados argumentos");
                 }
 
                 case "cd" -> {
                     if (argumentos.length == 2) {
                         mfm.cd(argumentos[1]);
                     } else
-                        System.out.println("bash: cd: demasiados argumentos");
+                        System.out.println("bash: cd: Demasiados argumentos");
                 }
 
                 case "ls" -> {
@@ -88,7 +87,7 @@ public class MiniTerminal {
                             e.getMessage();
                         }
                     } else
-                        System.out.println("bash: ls: demasiados argumentos");
+                        System.out.println("bash: ls: Demasiados argumentos");
                 }
 
                 case "ll" -> {
@@ -99,28 +98,28 @@ public class MiniTerminal {
                             e.getMessage();
                         }
                     } else
-                        System.out.println("bash: ll: demasiados argumentos");
+                        System.out.println("bash: ll: Demasiados argumentos");
                 }
 
                 case "mkdir" -> {
                     if (argumentos.length == 2) {
                         mfm.crearDirectorio(argumentos[1]);
                     } else
-                        System.out.println("bash: mkdir: demasiados argumentos");
+                        System.out.println("bash: mkdir: Demasiados argumentos");
                 }
 
                 case "rm" -> {
                     if (argumentos.length == 2) {
                         mfm.remove(argumentos[1]);
                     } else
-                        System.out.println("bash: rm: demasiados argumentos");
+                        System.out.println("bash: rm: Demasiados argumentos");
                 }
 
                 case "mv" -> {
                     if (argumentos.length == 3) {
                         mfm.move(argumentos[1], argumentos[2]);
                     } else
-                        System.out.println("bash: mv: demasiados argumentos");
+                        System.out.println("bash: mv: Demasiados argumentos");
                 }
 
                 case "help" -> {
@@ -134,7 +133,6 @@ public class MiniTerminal {
                     running = false;
                 }
             }
-
         }
     }
 }
